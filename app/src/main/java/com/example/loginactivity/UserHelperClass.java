@@ -2,13 +2,16 @@ package com.example.loginactivity;
 
 public class UserHelperClass {
 
-    String fname,lname,email,age,gender,qualification,profession,purpose,password;
+    String Id,fname,lname,email,age,gender,qualification,profession,purpose,password;
 
     public UserHelperClass() {
 
     }
 
-    public UserHelperClass(String fname, String lname, String email, String age, String gender, String qualification, String profession, String purpose, String password) {
+
+
+    public UserHelperClass(String postID, String fname, String lname, String email, String age, String gender, String qualification, String profession, String purpose, String password) {
+        this.Id = postID;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
@@ -18,6 +21,14 @@ public class UserHelperClass {
         this.profession = profession;
         this.purpose = purpose;
         this.password = password;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 
     public String getFname() {

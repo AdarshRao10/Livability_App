@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                                    String emailFromDB = snapshot.child(fname).child("email").getValue(String.class);
                                    String ageFromDB = snapshot.child(fname).child("age").getValue(String.class);
                                    String genderFromDB = snapshot.child(fname).child("gender").getValue(String.class);
+                                   String id = snapshot.child(fname).child("id").getValue(String.class);
 
                                    //store data in shared pref
                                    // Storing data into SharedPreferences
@@ -94,11 +95,14 @@ public class LoginActivity extends AppCompatActivity {
                                    myEdit.putString("email", emailFromDB);
                                    myEdit.putString("age", ageFromDB);
                                    myEdit.putString("gender", genderFromDB);
+                                   myEdit.putString("id", id);
 
                                    // Once the changes have been made,
                                    // we need to commit to apply those changes made,
                                    // otherwise, it will throw an error
                                    myEdit.commit();
+
+
 
                                    Intent Terms = new Intent(getApplicationContext(),Terms.class);
                                    startActivity(Terms);
