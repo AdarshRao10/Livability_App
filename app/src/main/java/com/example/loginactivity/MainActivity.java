@@ -91,9 +91,14 @@ public class MainActivity extends AppCompatActivity {
                     String purpose = txtPurpose.getText().toString() ;
                     String password = txtPwd.getEditText().getText().toString() ;
 
-                    UserHelperClass helperClass = new UserHelperClass( fname, lname, email, age, gender,  qualification, profession,  purpose, password);
+                    //get uniqueID
+                    String postID = reference.push().getKey();
+
+                    UserHelperClass helperClass = new UserHelperClass(postID ,fname, lname, email, age, gender,  qualification, profession,  purpose, password);
 
                     reference.child(fname).setValue(helperClass);
+                   // reference.push().setValue(helperClass);
+                    Toast.makeText(getApplicationContext(),postID,Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(),"Registration successfull!!",Toast.LENGTH_SHORT).show();
                 }
 

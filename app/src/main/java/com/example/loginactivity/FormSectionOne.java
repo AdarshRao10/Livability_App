@@ -4,6 +4,7 @@ import static java.lang.Float.parseFloat;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class FormSectionOne extends AppCompatActivity {
 
@@ -21,6 +26,9 @@ public class FormSectionOne extends AppCompatActivity {
     int sanitationAvailable,sanitationExpected;
 
     double rankWater,rankElectricity,rankSanitation,rankPublicHealth,rankPrivateHealth,rankHousing;
+
+    FirebaseDatabase RootNode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,16 +120,33 @@ public class FormSectionOne extends AppCompatActivity {
                 rankPrivateHealth =(cost_health_private_expected-cost_health_public_expected)/100;
                 rankSanitation=(float)(sanitationAvailable-sanitationExpected)/100;
 
+                //get data from shared preference
+                // Retrieving the value using its keys the file name
+// must be same in both saving and retrieving the data
+                SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
 
-                Toast.makeText(getApplicationContext(), "rankWater "+rankWater, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankElectricity "+rankElectricity, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankHousing "+rankHousing, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankPrivateHealth "+rankPrivateHealth, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankPublicHealth "+rankPublicHealth, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankSanitation "+rankSanitation, Toast.LENGTH_SHORT).show();
+// The value will be default as empty string because for
+// the very first time when the app is opened, there is nothing to show
+                String s1 = sh.getString("fname", "");
+                String s2 = sh.getString("id", "");
 
-                Intent intent = new Intent(getApplicationContext(),FormSectionTwo.class);
-                startActivity(intent);
+
+                RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
+                reference = RootNode.getReference("users");
+
+
+
+
+
+//                Toast.makeText(getApplicationContext(), "rankWater "+rankWater, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankElectricity "+rankElectricity, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankHousing "+rankHousing, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankPrivateHealth "+rankPrivateHealth, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankPublicHealth "+rankPublicHealth, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankSanitation "+rankSanitation, Toast.LENGTH_SHORT).show();
+//
+//                Intent intent = new Intent(getApplicationContext(),FormSectionTwo.class);
+//                startActivity(intent);
 
 
 
