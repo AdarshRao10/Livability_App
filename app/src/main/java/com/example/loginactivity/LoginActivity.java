@@ -89,11 +89,11 @@ public class LoginActivity extends AppCompatActivity {
                                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
 
                                    // Storing the key and its value as the data fetched from edittext
-                                   myEdit.putString("fname", fnameFromDB);
-                                   myEdit.putString("lname", lnameFromDB);
+//                                   myEdit.putString("fname", fnameFromDB);
+//                                   myEdit.putString("lname", lnameFromDB);
                                    myEdit.putString("email", emailFromDB);
-                                   myEdit.putString("age", ageFromDB);
-                                   myEdit.putString("gender", genderFromDB);
+//                                   myEdit.putString("age", ageFromDB);
+//                                   myEdit.putString("gender", genderFromDB);
 
                                    // Once the changes have been made,
                                    // we need to commit to apply those changes made,

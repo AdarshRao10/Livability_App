@@ -2,6 +2,7 @@ package com.example.loginactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,8 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
     Button btn_section567;
 
+    Button logout;
+
     int max=10;
 
     @Override
@@ -51,6 +54,8 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
         expNatEnv=findViewById(R.id.expNatEnv);
 
         btn_section567=findViewById(R.id.btn_section567);
+        logout=findViewById(R.id.logout);
+
 
         exiQuality.setMax(max);
         exiQuality.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -123,6 +128,22 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
             }
         });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                SharedPreferences preferences=getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+
+                editor.remove("email");
+                editor.clear();
+                editor.commit();
+
+
+            }
+        });
+
     }
 
 }
