@@ -5,12 +5,16 @@ package com.example.loginactivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class FormSectionTwo extends AppCompatActivity {
     //      Education
@@ -25,6 +29,9 @@ public class FormSectionTwo extends AppCompatActivity {
     float availPolStationVar,expPolStationVar,exiSalVar,expSalVar;
 
     Float rankPubEdu,rankPriEdu,rankPubTrans,rankPriTrans,rankPolice,rankSal;
+
+    FirebaseDatabase RootNode;
+    DatabaseReference reference;
 
     int max=10;
 
@@ -182,14 +189,39 @@ public class FormSectionTwo extends AppCompatActivity {
                 rankPolice=(availPolStationVar-expPolStationVar)/100;
                 rankSal=(exiSalVar-expSalVar)/100;
 
+                //get data from shared preference
+                // Retrieving the value using its keys the file name
+// must be same in both saving and retrieving the data
+                SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+
+// The value will be default as empty string because for
+// the very first time when the app is opened, there is nothing to show
+                String s1 = sh.getString("fname", "");
+                String s2 = sh.getString("id", "");
 
 
-                Toast.makeText(getApplicationContext(), "rankPubEdu "+rankPubEdu, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankPriEdu "+rankPriEdu, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankPubTrans "+rankPubTrans, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankPriTrans "+rankPriTrans, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankPolice "+rankPolice, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankSal "+rankSal, Toast.LENGTH_SHORT).show();
+                RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
+                reference = RootNode.getReference("users");
+
+                SectionTwoHelper sectionTwoHelper = new SectionTwoHelper( exiEduFacPubVar,  expEduFacPubVar,  exiEduFacPriVar,  expEduFacPriVar,  availPubTransVar,  expPubTransVar,  availPriTransVar,  expPriTransVar,  availPolStationVar,  expPolStationVar,  exiSalVar,  expSalVar);
+
+                reference.child(s1).child("section1").setValue(sectionTwoHelper);
+
+                // to append data
+//                HashMap<String,Object> values = new HashMap<>();
+//                values.put("waterAvailability",waterAvailability);
+//                reference.child(s1).updateChildren(values);
+
+                Toast.makeText(getApplicationContext(), "Section 2 complete", Toast.LENGTH_SHORT).show();
+
+
+
+//                Toast.makeText(getApplicationContext(), "rankPubEdu "+rankPubEdu, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankPriEdu "+rankPriEdu, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankPubTrans "+rankPubTrans, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankPriTrans "+rankPriTrans, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankPolice "+rankPolice, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankSal "+rankSal, Toast.LENGTH_SHORT).show();
 
                 startActivity(new Intent(getApplicationContext(),FormSectionThree.class));
             }

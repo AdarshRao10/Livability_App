@@ -17,6 +17,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import java.util.HashMap;
+
 public class FormSectionOne extends AppCompatActivity {
 
     EditText et_waterAvailabity,et_waterExpected,et_electricityAvailablity,et_electricityExpected,et_cost_health_public_existing,et_cost_health_public_expected,et_cost_health_private_existing,et_cost_health_private_expected,et_cost_renting_existing,et_cost_renting_expected;
@@ -134,7 +136,16 @@ public class FormSectionOne extends AppCompatActivity {
                 RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
                 reference = RootNode.getReference("users");
 
+                SectionOneHelper sectionOneHelper = new SectionOneHelper( waterAvailability,  waterExpected,  electricityAvailability,  electricityExpected, cost_health_public_existing, cost_health_public_expected,  cost_health_private_existing,  cost_health_private_expected,  cost_renting_existing, cost_renting_expected);
 
+                reference.child(s1).child("section1").setValue(sectionOneHelper);
+
+ // to append data
+//                HashMap<String,Object> values = new HashMap<>();
+//                values.put("waterAvailability",waterAvailability);
+//                reference.child(s1).updateChildren(values);
+
+                Toast.makeText(getApplicationContext(), "Section 1 complete", Toast.LENGTH_SHORT).show();
 
 
 
@@ -145,8 +156,8 @@ public class FormSectionOne extends AppCompatActivity {
 //                Toast.makeText(getApplicationContext(), "rankPublicHealth "+rankPublicHealth, Toast.LENGTH_SHORT).show();
 //                Toast.makeText(getApplicationContext(), "rankSanitation "+rankSanitation, Toast.LENGTH_SHORT).show();
 //
-//                Intent intent = new Intent(getApplicationContext(),FormSectionTwo.class);
-//                startActivity(intent);
+               Intent intent = new Intent(getApplicationContext(),FormSectionTwo.class);
+                startActivity(intent);
 
 
 
