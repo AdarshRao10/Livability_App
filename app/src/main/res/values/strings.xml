@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">LoginActivity</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="third">Third Gender</string>
+    <string name="none">Prefer not to say</string>
+    <string-array name="gender">
+        <item>@string/male</item>
+        <item>@string/female</item>
+        <item>@string/third</item>
+        <item>@string/none</item>
+    </string-array>
+    <string name="title_activity_maps">MapsActivity</string>
+
+</resources>

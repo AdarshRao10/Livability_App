@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".FormSectionFour">
+
+    <TextView
+        android:id="@+id/tv_section4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="10dp"
+        android:text="Section4" />
+
+    <ScrollView
+        android:id="@+id/sV_section4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+            <TextView
+                android:id="@+id/tv_publicFacilitiesAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Available number of public Leisure and Recreation facilities (in numbers)	"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_publicFacilitiesAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+
+                android:padding="8dp"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <TextView
+                android:id="@+id/tv_publicFacilitiesExpected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expected number of public Leisure and Recreation facilities (in numbers)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_publicFacilitiesExpected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tv_publicentertainmentUtilitiesAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Available number of public Entertainment Utilities (in numbers)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_publicentertainmentUtilitiesAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tv_publicentertainmentUtilitiesExpected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expected number of public Entertainment Utilities (in numbers)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_publicentertainmentUtilitiesExpected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tv_networkSpeedAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Network"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <SeekBar
+                android:id="@+id/sb_networkSpeedAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/sb_networkSpeedAvailableValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_networkSpeedExpected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Available network speed"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <SeekBar
+                android:id="@+id/sb_networkSpeedExpected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/sb_networkSpeedExpectedValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <Button
+                android:id="@+id/btn_section4_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Next"
+                android:gravity="center"
+
+                />
+
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>
