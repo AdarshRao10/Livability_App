@@ -190,8 +190,6 @@ public class FormSectionTwo extends AppCompatActivity {
                 rankSal=(exiSalVar-expSalVar)/100;
 
                 //get data from shared preference
-                // Retrieving the value using its keys the file name
-// must be same in both saving and retrieving the data
                 SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
 
 // The value will be default as empty string because for
@@ -205,7 +203,7 @@ public class FormSectionTwo extends AppCompatActivity {
 
                 SectionTwoHelper sectionTwoHelper = new SectionTwoHelper( exiEduFacPubVar,  expEduFacPubVar,  exiEduFacPriVar,  expEduFacPriVar,  availPubTransVar,  expPubTransVar,  availPriTransVar,  expPriTransVar,  availPolStationVar,  expPolStationVar,  exiSalVar,  expSalVar);
 
-                reference.child(s1).child("section1").setValue(sectionTwoHelper);
+                reference.child(s1).child("section2").setValue(sectionTwoHelper);
 
                 // to append data
 //                HashMap<String,Object> values = new HashMap<>();

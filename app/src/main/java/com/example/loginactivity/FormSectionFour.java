@@ -7,6 +7,7 @@ import static java.lang.Float.parseFloat;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,9 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class FormSectionFour extends AppCompatActivity {
 
@@ -23,6 +27,8 @@ public class FormSectionFour extends AppCompatActivity {
     float publicFacilitiesAvailability,publicFacilitiesExpected,publicEntertainmentUtilitiesAvailability,publicEntertaimnentUtilitiesExpected;
     float networkSpeedAvailable,networkSpeedExpected;
     TextView sb_networkSpeedAvailableValue,sb_networkSpeedExpectedValue;
+    FirebaseDatabase RootNode;
+    DatabaseReference reference;
 
     Float rankPublicFacilities,rankpublicEntertainment,rankNetworkSpeed;
     @Override
@@ -105,10 +111,26 @@ public class FormSectionFour extends AppCompatActivity {
                 rankpublicEntertainment = (publicEntertainmentUtilitiesAvailability-publicEntertaimnentUtilitiesExpected)/100;
                 rankNetworkSpeed =(networkSpeedAvailable-networkSpeedExpected)/100;
 
+                //get data from shared preference
+                SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
 
-                Toast.makeText(getApplicationContext(), "rankPublicFacilities "+rankPublicFacilities, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankEntertainnment "+rankpublicEntertainment, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "rankNetworkSpeed "+rankNetworkSpeed, Toast.LENGTH_SHORT).show();
+// The value will be default as empty string because for
+// the very first time when the app is opened, there is nothing to show
+                String s1 = sh.getString("fname", "");
+                String s2 = sh.getString("id", "");
+
+
+                RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
+                reference = RootNode.getReference("users");
+
+                SectionFourHelper sectionFourHelper = new SectionFourHelper(publicFacilitiesAvailability,publicFacilitiesExpected,publicEntertainmentUtilitiesAvailability,publicEntertaimnentUtilitiesExpected, networkSpeedAvailable,networkSpeedExpected);
+
+                reference.child(s1).child("section4").setValue(sectionFourHelper);
+                Toast.makeText(getApplicationContext(), "Section 4 complete", Toast.LENGTH_SHORT).show();
+
+//                Toast.makeText(getApplicationContext(), "rankPublicFacilities "+rankPublicFacilities, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankEntertainnment "+rankpublicEntertainment, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "rankNetworkSpeed "+rankNetworkSpeed, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getApplicationContext(),FormSectionFiveSixSeven.class);
                 startActivity(intent);
