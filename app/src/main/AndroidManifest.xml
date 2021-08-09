@@ -17,26 +17,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginActivity">
         <activity
+            android:name=".BarchartActivity"
+            android:exported="true" />
+        <activity
             android:name=".CalculationActivity"
             android:exported="true" />
         <activity
             android:name=".SplashScreen"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".FormSectionFiveSixSeven"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".FormSectionFour"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".FormSectionThree"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".FormSectionTwo"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".FormSectionOne"
-            android:exported="true"></activity>
+            android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
