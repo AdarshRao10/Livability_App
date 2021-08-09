@@ -41,13 +41,13 @@ public class CalculationNoLoginActivity extends AppCompatActivity {
         if(countGreen==6)
         {
             Toast.makeText(getApplicationContext(), "Dark Green", Toast.LENGTH_SHORT).show();
-        }else if( (countGreen +countBlue)==13)
+        }else if( (countGreen +countBlue)==5)
         {
             Toast.makeText(getApplicationContext(), "Light Green", Toast.LENGTH_SHORT).show();
-        }else if(((countGreen +countBlue)>=8) || ((countGreen +countBlue)<=12))
+        }else if(((countGreen +countBlue)==3) || ((countGreen +countBlue)==4))
         {
             Toast.makeText(getApplicationContext(), "yellow", Toast.LENGTH_SHORT).show();
-        }else if(((countGreen +countBlue)>=4) || ((countGreen +countBlue)<=7))
+        }else if(((countGreen +countBlue)==2))
         {
             Toast.makeText(getApplicationContext(), "orange", Toast.LENGTH_SHORT).show();
         }else
