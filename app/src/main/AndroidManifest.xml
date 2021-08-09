@@ -24,19 +24,37 @@
 
         <activity
             android:name=".FormSectionFiveSixSeven"
-            android:exported="true" />
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".FormSectionFour"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".FormSectionThree"
-            android:exported="true" />
+            android:exported="true" >
+
+
+        </activity>
         <activity
             android:name=".FormSectionTwo"
-            android:exported="true" />
+            android:exported="true" >
+
+
+        </activity>
         <activity
             android:name=".FormSectionOne"
-            android:exported="true" />
+            android:exported="true" >
+
+
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -65,11 +83,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
     </application>

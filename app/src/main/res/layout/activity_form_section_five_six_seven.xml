@@ -17,7 +17,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:text="Existing Response time taken for any governance activity (in minute numbers)"
+                android:text="Existing Response time taken for any governance activity (in day's numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"/>
@@ -29,7 +29,7 @@
                 android:layout_margin="5dp"
                 android:inputType="number" />
             <TextView
-                android:text="Expected Response time taken for any governance activity (in minute numbers)"
+                android:text="Expected Response time taken for any governance activity (in day's numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"/>
@@ -54,7 +54,7 @@
                 android:layout_margin="5dp"
                 android:inputType="number" />
             <TextView
-                android:text="Percentage of Natural Environment expected (in numbers) "
+                android:text="Expected Percentage of Natural Environment (in numbers) "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"/>

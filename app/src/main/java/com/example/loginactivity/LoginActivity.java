@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                                 txtfname.setError(null);
                                 txtfname.setError(null);
 
-                               String passFromDB = snapshot.child(fname).child("password").getValue(String.class);
+                               String passFromDB =snapshot.child(fname).child("password").getValue(String.class);
 
                                if(passFromDB.equals(password)){
                                    Toast.makeText(getApplicationContext(),"login successfull!!",Toast.LENGTH_SHORT).show();

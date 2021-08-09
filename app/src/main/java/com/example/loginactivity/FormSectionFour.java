@@ -97,47 +97,96 @@ public class FormSectionFour extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getApplicationContext(), "Onclick", Toast.LENGTH_SHORT).show();
+                if(validateform())
+                {
+                    Toast.makeText(getApplicationContext(), "Onclick", Toast.LENGTH_SHORT).show();
 
-                publicFacilitiesAvailability = parseFloat(et_publicFacilitiesAvailable.getText().toString());
-                publicFacilitiesExpected = parseFloat(et_publicFacilitiesExpected.getText().toString());
-                publicEntertainmentUtilitiesAvailability= parseFloat(et_publicentertainmentUtilitiesAvailable.getText().toString());
-                publicEntertaimnentUtilitiesExpected= parseFloat(et_publicentertainmentUtilitiesExpected.getText().toString());
-                networkSpeedAvailable=sb_networkSpeedAvailable.getProgress();
-                networkSpeedExpected=sb_networkSpeedExpected.getProgress();
+                    publicFacilitiesAvailability = parseFloat(et_publicFacilitiesAvailable.getText().toString());
+                    publicFacilitiesExpected = parseFloat(et_publicFacilitiesExpected.getText().toString());
+                    publicEntertainmentUtilitiesAvailability= parseFloat(et_publicentertainmentUtilitiesAvailable.getText().toString());
+                    publicEntertaimnentUtilitiesExpected= parseFloat(et_publicentertainmentUtilitiesExpected.getText().toString());
+                    networkSpeedAvailable=sb_networkSpeedAvailable.getProgress();
+                    networkSpeedExpected=sb_networkSpeedExpected.getProgress();
 
 
-                rankPublicFacilities= (publicFacilitiesAvailability-publicFacilitiesExpected)/100;
-                rankpublicEntertainment = (publicEntertainmentUtilitiesAvailability-publicEntertaimnentUtilitiesExpected)/100;
-                rankNetworkSpeed =(networkSpeedAvailable-networkSpeedExpected)/100;
+                    rankPublicFacilities= (publicFacilitiesAvailability-publicFacilitiesExpected)/100;
+                    rankpublicEntertainment = (publicEntertainmentUtilitiesAvailability-publicEntertaimnentUtilitiesExpected)/100;
+                    rankNetworkSpeed =(networkSpeedAvailable-networkSpeedExpected)/100;
 
-                //get data from shared preference
-                SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                    //get data from shared preference
+                    SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
 
 // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
-                String s1 = sh.getString("fname", "");
-                String s2 = sh.getString("id", "");
+                    String s1 = sh.getString("fname", "");
+                    String s2 = sh.getString("id", "");
 
 
-                RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
-                reference = RootNode.getReference("users");
+                    RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
+                    reference = RootNode.getReference("users");
 
-                SectionFourHelper sectionFourHelper = new SectionFourHelper(publicFacilitiesAvailability,publicFacilitiesExpected,publicEntertainmentUtilitiesAvailability,publicEntertaimnentUtilitiesExpected, networkSpeedAvailable,networkSpeedExpected);
+                    SectionFourHelper sectionFourHelper = new SectionFourHelper(publicFacilitiesAvailability,publicFacilitiesExpected,publicEntertainmentUtilitiesAvailability,publicEntertaimnentUtilitiesExpected, networkSpeedAvailable,networkSpeedExpected);
 
-                reference.child(s1).child("section4").setValue(sectionFourHelper);
-                Toast.makeText(getApplicationContext(), "Section 4 complete", Toast.LENGTH_SHORT).show();
+                    reference.child(s1).child("section4").setValue(sectionFourHelper);
+                    Toast.makeText(getApplicationContext(), "Section 4 complete", Toast.LENGTH_SHORT).show();
 
 //                Toast.makeText(getApplicationContext(), "rankPublicFacilities "+rankPublicFacilities, Toast.LENGTH_SHORT).show();
 //                Toast.makeText(getApplicationContext(), "rankEntertainnment "+rankpublicEntertainment, Toast.LENGTH_SHORT).show();
 //                Toast.makeText(getApplicationContext(), "rankNetworkSpeed "+rankNetworkSpeed, Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getApplicationContext(),FormSectionFiveSixSeven.class);
-                startActivity(intent);
+                    Intent intent = new Intent(getApplicationContext(),FormSectionFiveSixSeven.class);
+                    startActivity(intent);
+
+                }else {
+                    Toast.makeText(getApplicationContext(), "Please fill all details", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
 
 
 
     }
+
+    private boolean validateform() {
+        String sb_networkSpeedAvail=sb_networkSpeedAvailableValue.getText().toString();
+        String sb_networkSpeedExp=sb_networkSpeedExpectedValue.getText().toString();
+        String et_publicFacilitiesAvail=et_publicFacilitiesAvailable.getText().toString();
+        String et_publicFacilitiesExp=et_publicFacilitiesExpected.getText().toString();
+        String et_publicentertainmentUtilitiesAvail=et_publicentertainmentUtilitiesAvailable.getText().toString();
+        String et_publicentertainmentUtilitiesExp=et_publicentertainmentUtilitiesExpected.getText().toString();
+
+        if(sb_networkSpeedAvail.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Network field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+        }else if(sb_networkSpeedExp.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Network field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+        }else if(et_publicFacilitiesAvail.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Public Leisure facilities field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+        }else if(et_publicFacilitiesExp.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Public Leisure facilities field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+        }else if(et_publicentertainmentUtilitiesAvail.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Public Entertainment facilities field empty", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if(et_publicentertainmentUtilitiesExp.isEmpty()){
+
+            Toast.makeText(getApplicationContext(), "Public Entertainment facilities field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+        }else{
+            return true;
+        }
+
+
+    }
 }
+
+

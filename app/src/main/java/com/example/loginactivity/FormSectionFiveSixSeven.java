@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,11 +34,11 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
     float exiQualityVar,expQualityVar;
 
     //    Governance
-    TextView exiGovtRespTime,expGovtRespTime;
+    EditText exiGovtRespTime,expGovtRespTime;
     float exiGovtRespTimeVar,expGovtRespTimeVar;
 
     //    Natural Environment
-    TextView availNatEnv,expNatEnv;
+    EditText availNatEnv,expNatEnv;
     float availNatEnvVar,expNatEnvVar;
 
     float rankQuality,rankGovt,rankNatEnv;
@@ -68,6 +70,7 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 //        Governance
         exiGovtRespTime=findViewById(R.id.exiGovtRespTime);
         expGovtRespTime=findViewById(R.id.expGovtRespTime);
+
 
 //        Natural Env
         availNatEnv=findViewById(R.id.availNatEnv);
@@ -123,38 +126,48 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(validateform())
+                {
+
+
 //                Quality Of Life
-                exiQualityVar= Float.parseFloat(exiQualityVal.getText().toString());
-                expQualityVar= Float.parseFloat(expQualityVal.getText().toString());
+                    exiQualityVar= Float.parseFloat(exiQualityVal.getText().toString());
+                    expQualityVar= Float.parseFloat(expQualityVal.getText().toString());
 
 //                Governance
-                exiGovtRespTimeVar= Float.parseFloat(exiGovtRespTime.getText().toString());
-                expGovtRespTimeVar=Float.parseFloat(expGovtRespTime.getText().toString());
+                    exiGovtRespTimeVar= Float.parseFloat(exiGovtRespTime.getText().toString());
+                    expGovtRespTimeVar=Float.parseFloat(expGovtRespTime.getText().toString());
 
 //                NaturalEnv
-                availNatEnvVar=Float.parseFloat(availNatEnv.getText().toString());
-                expNatEnvVar=Float.parseFloat(expNatEnv.getText().toString());
+                    availNatEnvVar=Float.parseFloat(availNatEnv.getText().toString());
+                    expNatEnvVar=Float.parseFloat(expNatEnv.getText().toString());
 
-                rankQuality=(exiQualityVar-expQualityVar)/100;
-                rankGovt=(exiGovtRespTimeVar-expGovtRespTimeVar)/100;
-                rankNatEnv=(availNatEnvVar-expNatEnvVar)/100;
+                    rankQuality=(exiQualityVar-expQualityVar)/100;
+                    rankGovt=(exiGovtRespTimeVar-expGovtRespTimeVar)/100;
+                    rankNatEnv=(availNatEnvVar-expNatEnvVar)/100;
 
-                //get data from shared preference
-                SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                    //get data from shared preference
+                    SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
 
 // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
-                String s1 = sh.getString("fname", "");
-                String s2 = sh.getString("id", "");
+                    String s1 = sh.getString("fname", "");
+                    String s2 = sh.getString("id", "");
 
 
-                RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
-                reference = RootNode.getReference("users");
 
-                SectionFiveSixSevenHelper sectionFiveSixSevenHelper = new SectionFiveSixSevenHelper(exiQualityVar,expQualityVar,exiGovtRespTimeVar,expGovtRespTimeVar,availNatEnvVar,expNatEnvVar);
+                    RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
+                    reference = RootNode.getReference("users");
 
-                reference.child(s1).child("section5").setValue(sectionFiveSixSevenHelper);
-                Toast.makeText(getApplicationContext(), "Section 5 complete", Toast.LENGTH_SHORT).show();
+                    SectionFiveSixSevenHelper sectionFiveSixSevenHelper = new SectionFiveSixSevenHelper(exiQualityVar,expQualityVar,exiGovtRespTimeVar,expGovtRespTimeVar,availNatEnvVar,expNatEnvVar);
+
+                    reference.child(s1).child("section5").setValue(sectionFiveSixSevenHelper);
+                    Toast.makeText(getApplicationContext(), "Section 5 complete", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "Please fill all details", Toast.LENGTH_SHORT).show();
+                }
+
 
 //                Toast.makeText(FormSectionFiveSixSeven.this, " "+rankQuality, Toast.LENGTH_SHORT).show();
 //                Toast.makeText(FormSectionFiveSixSeven.this, " "+rankGovt, Toast.LENGTH_SHORT).show();
@@ -198,6 +211,52 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
     }
 
+    private boolean validateform() {
+        String exiGovtResp=exiGovtRespTime.getText().toString();
+        String expGovtResp= expGovtRespTime.getText().toString();
+        String availNat =availNatEnv.getText().toString();
+        String expNat= expNatEnv.getText().toString();
+        String exiQuality=exiQualityVal.getText().toString();
+        String expQuality=expQualityVal.getText().toString();
+
+        if(exiGovtResp.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Govt Resp field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+        }else if(expGovtResp.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Govt Resp field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+
+        }else if(availNat.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Natural env field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+
+        }else if(expNat.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Natural env field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+
+        }else if(exiQuality.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Quality field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+
+        }else if(expQuality.isEmpty()){
+
+            Toast.makeText(getApplicationContext(), "Quality field empty", Toast.LENGTH_SHORT).show();
+            return false;
+
+
+        }else{
+
+            return true;
+        }
+
+    }
+
+    @SuppressLint("MissingPermission")
     private void GetCurrentLocation() {
 
         LocationRequest locationReq = new LocationRequest();
@@ -233,3 +292,6 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
     }
 
 }
+
+
+
