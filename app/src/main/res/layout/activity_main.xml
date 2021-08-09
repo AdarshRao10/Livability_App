@@ -119,21 +119,76 @@
 <!--        android:ems="10"-->
 <!--        pass-->
 <!--        android:hint="Create password eg: yyyy/mm/dd" />-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtPwd"
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/txtPwd"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:hint="Create password eg: yyyy/mm/dd"-->
+<!--        app:passwordToggleEnabled="true">-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--           />-->
+
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Create password eg: yyyy/mm/dd"
-        app:passwordToggleEnabled="true">
+        android:padding="2dp"
+        android:text="Enter your date of birth"
+        android:textColor="@color/black"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-           />
+        <EditText
+            android:id="@+id/et_day"
+            android:inputType="number"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:hint="dd"
+            android:maxLength="2"
+            android:gravity="center"
+            android:layout_weight="1"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/et_month"
+            android:inputType="number"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:hint="mm"
+            android:maxLength="2"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/et_year"
+            android:inputType="number"
+            android:maxLength="4"
+            android:gravity="center"
+            android:hint="yyyy"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
 
 
     <EditText

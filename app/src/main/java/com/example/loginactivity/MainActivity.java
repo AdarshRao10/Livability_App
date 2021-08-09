@@ -21,7 +21,7 @@ import java.security.PrivateKey;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    EditText txtfname,txtlname,txtEmail,txtAge,txtGender,txtQualify,txtprof,txtPurpose;
+    EditText txtfname,txtlname,txtEmail,txtAge,txtGender,txtQualify,txtprof,txtPurpose,et_day,et_month,et_year;
     TextInputLayout txtPwd;
     Button btnReg ,btnLogin;
     String[] GenderType;
@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         txtPurpose=findViewById(R.id.txtPurpose);
         txtPwd=findViewById(R.id.txtPwd);
         btnReg = findViewById(R.id.btnReg);
+        et_day=findViewById(R.id.et_day);
+        et_month=findViewById(R.id.et_month);
+        et_year=findViewById(R.id.et_year);
         btnLogin = findViewById(R.id.btnLogin);
 
         // Spinner element
@@ -89,7 +92,11 @@ public class MainActivity extends AppCompatActivity {
                     String qualification = txtQualify.getText().toString() ;
                     String profession = txtprof.getText().toString() ;
                     String purpose = txtPurpose.getText().toString() ;
-                    String password = txtPwd.getEditText().getText().toString() ;
+                    String day= et_day.getText().toString();
+                    String month=et_month.getText().toString();
+                    String year = et_year.getText().toString();
+                    String password =year+month+day;
+                    //String password = txtPwd.getEditText().getText().toString() ;
 
                     //get uniqueID
                     String postID = reference.push().getKey();
@@ -108,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Login = new Intent(getApplicationContext(),LoginActivity.class);
+                Intent Login = new Intent(getApplicationContext(),Terms.class);
                 startActivity(Login);
             }
         });
@@ -123,7 +130,11 @@ public class MainActivity extends AppCompatActivity {
         String qualification = txtQualify.getText().toString() ;
         String profession = txtprof.getText().toString() ;
         String purpose = txtPurpose.getText().toString() ;
-        String password = txtPwd.getEditText().getText().toString() ;
+        String day= et_day.getText().toString();
+        String month=et_month.getText().toString();
+        String year = et_year.getText().toString();
+        String password =day+month+year;
+       // String password = txtPwd.getEditText().getText().toString() ;
 
         if(fname.isEmpty()){
             txtfname.setError("Field cannot be empty");
@@ -162,6 +173,24 @@ public class MainActivity extends AppCompatActivity {
         if(purpose.isEmpty()){
             txtPurpose.setError("Field cannot be empty");
             return false;
+        }
+
+        if(year.isEmpty()){
+            et_year.setError("Year cannot be empty");
+        }else if(year.length()!=4){
+            et_year.setError("Enter correct year");
+        }
+
+        if(month.isEmpty()){
+            et_year.setError("Year cannot be empty");
+        }else if(Integer.parseInt(month)>12 && Integer.parseInt(month)<0){
+            et_year.setError("Enter correct month");
+        }
+
+        if(day.isEmpty()){
+            et_year.setError("day cannot be empty");
+        }else if(Integer.parseInt(day)>31 && Integer.parseInt(day)<0){
+            et_year.setError("Enter correct day");
         }
 
         if(password.isEmpty()){
