@@ -10,5 +10,8 @@ public class BarchartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barchart);
+
+        Bundle extras = getIntent().getExtras();
+        int arrayB = extras.getInt("array");
     }
 }

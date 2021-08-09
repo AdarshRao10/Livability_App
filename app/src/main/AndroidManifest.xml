@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginActivity">
         <activity
+            android:name=".CalculationNoLoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".BarchartActivity"
             android:exported="true" />
         <activity
