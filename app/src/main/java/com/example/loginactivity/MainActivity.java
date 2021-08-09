@@ -3,6 +3,7 @@ package com.example.loginactivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -101,9 +102,25 @@ public class MainActivity extends AppCompatActivity {
                     //get uniqueID
                     String postID = reference.push().getKey();
 
+                    //save id in sharedpref
+                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
+
+                    // Creating an Editor object to edit(write to the file)
+                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+                    // Storing the key and its value as the data fetched from edittext
+                    myEdit.putString("Id", postID);
+
+
+                    // Once the changes have been made,
+                    // we need to commit to apply those changes made,
+                    // otherwise, it will throw an error
+                    myEdit.commit();
+
                     UserHelperClass helperClass = new UserHelperClass(postID ,fname, lname, email, age, gender,  qualification, profession,  purpose, password);
 
-                    reference.child(fname).setValue(helperClass);
+                    reference.child(postID).setValue(helperClass);
+                   // reference.child(fname).setValue(helperClass);
                    // reference.push().setValue(helperClass);
                     Toast.makeText(getApplicationContext(),postID,Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(),"Registration successfull!!",Toast.LENGTH_SHORT).show();
