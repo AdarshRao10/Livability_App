@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                    // reference.push().setValue(helperClass);
                     Toast.makeText(getApplicationContext(),postID,Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(),"Registration successfull!!",Toast.LENGTH_SHORT).show();
+
                 }
 
             }
