@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SectionOneNoLogin">
+
+    <ScrollView
+        android:id="@+id/sV_BasicRequirement2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+            <TextView
+                android:id="@+id/tv_waterAvailability2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Availability of water during Summer season (in litres)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_waterAvailabity2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:textSize="18sp"
+                android:inputType="number"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <TextView
+                android:id="@+id/tv_waterExpected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expectation of water during Summer season (in litres)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_waterExpected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:textSize="18sp"
+                android:inputType="number"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tv_electricityAvailability2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Availability of Electricity for how many hours (in hours)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_electricityAvailablity2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="number"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tv_electricityExpected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expectation of Electricity for how many hours (in hours)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_electricityExpected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="number"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tv_sanitationAvailable2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Give a Marks for sanitation facilities Available"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <SeekBar
+                android:id="@+id/sb_sanitationAvailable2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/sb_sanitationAvailableVar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_sanitationExpected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Give a Marks for sanitation facilities Expected"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <SeekBar
+                android:id="@+id/sb_sanitationExpected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/sb_sanitationExpectedVar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_cost_health_public_existing2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Existing Cost for availing health facility in public sector (in Rupees)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_cost_health_public_existing2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="number"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <TextView
+                android:id="@+id/tv_cost_health_public_expected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expected Cost for availing health facility in public sector (in Rupees)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_cost_health_public_expected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="number"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+
+            <TextView
+                android:id="@+id/tv_cost_health_private_existing2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Existing Cost for availing health facility in private sector (in Rupees)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_cost_health_private_existing2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <TextView
+                android:id="@+id/tv_cost_health_private_expected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expected Cost for availing health facility in private sector (in Rupees)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_cost_health_private_expected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="number"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <TextView
+                android:id="@+id/tv_cost_renting_existing2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Existing cost for renting / purchasing house (in Rupees)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_cost_renting_existing2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="number"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <TextView
+                android:id="@+id/tv_cost_renting_expected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expected cost for renting / purchasing house(in Rupees)"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
+
+            <EditText
+                android:id="@+id/et_cost_renting_expected2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="number"
+                android:textSize="18sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/btn_section1_next2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Next"
+                android:gravity="center"
+
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

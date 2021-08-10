@@ -17,21 +17,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginActivity">
         <activity
+            android:name=".SectionOneNoLogin"
+            android:exported="true" />
+        <activity
             android:name=".BarChartNoLogin"
             android:exported="true" />
         <activity
             android:name=".CalculationNoLoginActivity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".BarchartActivity"
             android:exported="true" />
         <activity
             android:name=".CalculationActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -83,9 +82,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
