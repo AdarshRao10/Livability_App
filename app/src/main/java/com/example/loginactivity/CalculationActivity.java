@@ -14,7 +14,7 @@ public class CalculationActivity extends AppCompatActivity {
 
 // Values need to be added in an array. while fetching, create above commented variables
 //    Add the values from Firebase to the variables and pass them to array. Below are dummy values
-    float arr[] = {-0.4f,-0.02f,-0.03f,-5,-30,-20,-0.15f,0,-0.03f,-0.06f,-0.05f,-150,-0.2f,-0.04f,-0.15f,-0.06f,-0.04f,-0.16f,-0.2f,-0.03f};
+    float arr[] = {0.4f,-0.02f,0.03f,-5,30,-20,-0.15f,0,-0.03f,-0.06f,-0.05f,-150,-0.2f,-0.04f,-0.15f,-0.06f,-0.04f,-0.16f,-0.2f,-0.03f};
     Button goToMaps,goToGraphs;
     int countGreen=0,countBlue=0,countRed=0;
     @Override
@@ -70,8 +70,10 @@ public class CalculationActivity extends AppCompatActivity {
         goToGraphs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Opening bargraph", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(getApplicationContext(),BarchartActivity.class);
                 intent.putExtra("array",arr);
+                startActivity(intent);
             }
         });
 

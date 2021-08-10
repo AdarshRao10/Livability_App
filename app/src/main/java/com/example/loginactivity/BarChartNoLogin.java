@@ -16,7 +16,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
-public class BarchartActivity extends AppCompatActivity {
+public class BarChartNoLogin extends AppCompatActivity {
 
     // variable for our bar chart
     BarChart barChart;
@@ -32,11 +32,11 @@ public class BarchartActivity extends AppCompatActivity {
 
     float arr[];
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_barchart);
+        setContentView(R.layout.activity_bar_chart_no_login);
+
 
         Bundle extras = getIntent().getExtras();
         arr = extras.getFloatArray("array");
@@ -53,7 +53,7 @@ public class BarchartActivity extends AppCompatActivity {
         xAxisLabel.add("Fri");
         xAxisLabel.add("Sat");
 
-        barChart = findViewById(R.id.bargraph);
+        barChart = findViewById(R.id.bargraphNoLogin);
 
         XAxis xAxis = barChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -72,8 +72,7 @@ public class BarchartActivity extends AppCompatActivity {
         // to our bar chart.
         barChart.setData(barData);
 
-        final String[] labels = new String[] {"","Water", "Electricity", "Sanitation", "Public Health System", "Private Health System", "Housing",
-                "Public Mass Transport", "Private Mass Transport","Public Education System", "Private Education System", "Safety and Security", "Employment and Opportunity", "Public space", "Community Life","Liesure and Recreation","Entertainment","Network Connectivity","Governance","Natural Environment","Quality of life"};
+        final String[] labels = new String[] {"","Water", "Electricity", "Sanitation", "Public Health System", "Private Health System", "Housing"};
         xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
         xAxis.setGranularity(1f);
         xAxis.setLabelRotationAngle(-90);
@@ -104,20 +103,7 @@ public class BarchartActivity extends AppCompatActivity {
         barEntriesArrayList.add(new BarEntry(4f, arr[3]));
         barEntriesArrayList.add(new BarEntry(5f, arr[4]));
         barEntriesArrayList.add(new BarEntry(6f, arr[5]));
-        barEntriesArrayList.add(new BarEntry(7f, arr[6]));
-        barEntriesArrayList.add(new BarEntry(8f, arr[7]));
-        barEntriesArrayList.add(new BarEntry(9f, arr[8]));
-        barEntriesArrayList.add(new BarEntry(10f, arr[9]));
-        barEntriesArrayList.add(new BarEntry(11f, arr[10]));
-        barEntriesArrayList.add(new BarEntry(12f, arr[11]));
-        barEntriesArrayList.add(new BarEntry(13f, arr[12]));
-        barEntriesArrayList.add(new BarEntry(14f, arr[13]));
-        barEntriesArrayList.add(new BarEntry(15f, arr[14]));
-        barEntriesArrayList.add(new BarEntry(16f, arr[15]));
-        barEntriesArrayList.add(new BarEntry(17f, arr[16]));
-        barEntriesArrayList.add(new BarEntry(18f, arr[17]));
-        barEntriesArrayList.add(new BarEntry(19f, arr[18]));
-        barEntriesArrayList.add(new BarEntry(20f, arr[19]));
+
 
     }
 

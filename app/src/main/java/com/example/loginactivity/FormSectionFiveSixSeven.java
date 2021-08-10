@@ -164,6 +164,9 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
                     reference.child(s1).child("section5").setValue(sectionFiveSixSevenHelper);
                     Toast.makeText(getApplicationContext(), "Section 5 complete", Toast.LENGTH_SHORT).show();
 
+                    Intent intent = new Intent(getApplicationContext(),CalculationActivity.class);
+                    startActivity(intent);
+
                 }else{
                     Toast.makeText(getApplicationContext(), "Please fill all details", Toast.LENGTH_SHORT).show();
                 }

@@ -33,7 +33,7 @@ public class Terms extends AppCompatActivity {
 //                    Intent Home = new Intent(getApplicationContext(),Home.class);
 //                    startActivity(Home);
                     Toast.makeText(getApplicationContext(),"welcome",Toast.LENGTH_SHORT).show();
-                    Intent Home = new Intent(getApplicationContext(),LoginActivity.class);
+                    Intent Home = new Intent(getApplicationContext(),FormSectionOne.class);
                     startActivity(Home);
 
 

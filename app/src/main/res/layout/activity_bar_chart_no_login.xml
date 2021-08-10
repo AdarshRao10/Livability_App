@@ -5,18 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BarchartActivity">
+    tools:context=".BarChartNoLogin">
 
     <com.github.mikephil.charting.charts.BarChart
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:id="@+id/bargraph">
+        android:id="@+id/bargraphNoLogin">
 
 
     </com.github.mikephil.charting.charts.BarChart>
-
-
-
 
 
 

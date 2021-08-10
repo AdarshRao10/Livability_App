@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Login = new Intent(getApplicationContext(),Terms.class);
+                Intent Login = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(Login);
             }
         });

@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Register = new Intent(getApplicationContext(),MainActivity.class);
+                Intent Register = new Intent(getApplicationContext(),Terms.class);
                 startActivity(Register);
             }
         });
@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-                                    Intent Terms = new Intent(getApplicationContext(),FormSectionOne.class);
+                                    Intent Terms = new Intent(getApplicationContext(),Terms.class);
                                     startActivity(Terms);
                                 }
                                 else{

@@ -3,15 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Livability_App/app/src/main/res/layout/activity_calculation.xml" value="0.25416666666666665" />
-        <entry key="..\:/Livability_App/app/src/main/res/layout/activity_calculation_no_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Livability_App/app/src/main/res/layout/activity_bar_chart_no_login.xml" value="0.1" />
+        <entry key="..\:/Livability_App/app/src/main/res/layout/activity_barchart.xml" value="0.16770833333333332" />
+        <entry key="..\:/Livability_App/app/src/main/res/layout/activity_calculation.xml" value="0.1" />
+        <entry key="..\:/Livability_App/app/src/main/res/layout/activity_calculation_no_login.xml" value="0.1" />
         <entry key="..\:/Livability_App/app/src/main/res/layout/activity_form_section_five_six_seven.xml" value="0.25416666666666665" />
         <entry key="..\:/Livability_App/app/src/main/res/layout/activity_form_section_four.xml" value="0.25416666666666665" />
         <entry key="..\:/Livability_App/app/src/main/res/layout/activity_form_section_one.xml" value="0.2290836653386454" />
         <entry key="..\:/Livability_App/app/src/main/res/layout/activity_form_section_three.xml" value="0.25416666666666665" />
         <entry key="..\:/Livability_App/app/src/main/res/layout/activity_form_section_two.xml" value="0.25416666666666665" />
+        <entry key="..\:/Livability_App/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Livability_App/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Livability_App/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Livability_App/app/src/main/res/layout/activity_terms.xml" value="0.1" />
         <entry key="..\:/Users/SARITA/AndroidStudioProjects/LoginActivity/app/src/main/res/layout/activity_form_section_five_six_seven.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/SARITA/AndroidStudioProjects/LoginActivity/app/src/main/res/layout/activity_form_section_four.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/SARITA/AndroidStudioProjects/LoginActivity/app/src/main/res/layout/activity_form_section_one.xml" value="0.20416666666666666" />
