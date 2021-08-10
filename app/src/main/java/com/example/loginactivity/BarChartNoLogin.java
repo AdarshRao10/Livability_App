@@ -86,9 +86,13 @@ public class BarChartNoLogin extends AppCompatActivity {
         // setting text color.
         barDataSet.setValueTextColor(Color.BLACK);
 
+
         // setting text size
         barDataSet.setValueTextSize(16f);
+        barDataSet.setDrawValues(false);
+
         barChart.getDescription().setEnabled(false);
+        barChart.getLegend().setEnabled(false);
     }
 
     private void getBarEntries() {

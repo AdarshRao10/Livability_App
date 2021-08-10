@@ -9,13 +9,23 @@
 
     <com.github.mikephil.charting.charts.BarChart
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="600dp"
         android:id="@+id/bargraph">
+
+
 
 
     </com.github.mikephil.charting.charts.BarChart>
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:padding="5dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:text="Livability PieChart"
+        />
 
 
 

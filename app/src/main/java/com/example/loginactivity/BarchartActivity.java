@@ -72,6 +72,8 @@ public class BarchartActivity extends AppCompatActivity {
         // to our bar chart.
         barChart.setData(barData);
 
+
+
         final String[] labels = new String[] {"","Water", "Electricity", "Sanitation", "Public Health System", "Private Health System", "Housing",
                 "Public Mass Transport", "Private Mass Transport","Public Education System", "Private Education System", "Safety and Security", "Employment and Opportunity", "Public space", "Community Life","Liesure and Recreation","Entertainment","Network Connectivity","Governance","Natural Environment","Quality of life"};
         xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
@@ -88,8 +90,12 @@ public class BarchartActivity extends AppCompatActivity {
         barDataSet.setValueTextColor(Color.BLACK);
 
         // setting text size
+        //barDataSet.setValueTextSize(16f);
         barDataSet.setValueTextSize(16f);
+        barDataSet.setDrawValues(false);
+
         barChart.getDescription().setEnabled(false);
+        barChart.getLegend().setEnabled(false);
     }
 
     private void getBarEntries() {

@@ -63,6 +63,9 @@ public class CalculationActivity extends AppCompatActivity {
         goToMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Opening Map", Toast.LENGTH_SHORT).show();
+                Intent mapIntent = new Intent(getApplicationContext(),MapsActivity.class);
+                startActivity(mapIntent);
 
             }
         });
