@@ -77,7 +77,7 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
         expNatEnv=findViewById(R.id.expNatEnv);
 
         btn_section567=findViewById(R.id.btn_section567);
-        logout=findViewById(R.id.logout);
+        //logout=findViewById(R.id.logout);
 
 
         exiQuality.setMax(max);
@@ -165,6 +165,17 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
                     reference.child(userID).child("section5").setValue(sectionFiveSixSevenHelper);
                     Toast.makeText(getApplicationContext(), "Section 5 complete", Toast.LENGTH_SHORT).show();
 
+                    if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                            != PackageManager.PERMISSION_GRANTED) {
+                        // Permission is not granted
+                        ActivityCompat.requestPermissions(FormSectionFiveSixSeven.this,
+                                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                                loc_permission);
+                    } else {
+                        //permission granted
+                        GetCurrentLocation();
+                    }
+
                     Intent intent = new Intent(getApplicationContext(),CalculationActivity.class);
                     startActivity(intent);
 
@@ -185,35 +196,49 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
 
 
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    // Permission is not granted
-                    ActivityCompat.requestPermissions(FormSectionFiveSixSeven.this,
-                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                            loc_permission);
-                } else {
-                    //permission granted
-                    GetCurrentLocation();
-                }
-
-
-
-//                SharedPreferences preferences=getSharedPreferences("MySharedPref",MODE_PRIVATE);
-//                SharedPreferences.Editor editor=preferences.edit();
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
 //
-//                editor.remove("email");
-//                editor.clear();
-//                editor.commit();
-
-
-            }
-        });
+//                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+//                        != PackageManager.PERMISSION_GRANTED) {
+//                    // Permission is not granted
+//                    ActivityCompat.requestPermissions(FormSectionFiveSixSeven.this,
+//                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+//                            loc_permission);
+//                } else {
+//                    //permission granted
+//                    GetCurrentLocation();
+//                }
+//
+//
+//
+////                SharedPreferences preferences=getSharedPreferences("MySharedPref",MODE_PRIVATE);
+////                SharedPreferences.Editor editor=preferences.edit();
+////
+////                editor.remove("email");
+////                editor.clear();
+////                editor.commit();
+//
+//
+//            }
+//        });
 
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode==1 && grantResults.length>0 &&
+                (grantResults[0]+grantResults[1] ==PackageManager.PERMISSION_GRANTED)){
+//            When permission granted call getLocation
+            GetCurrentLocation();
+        }else{
+//            If permission Denied
+            Toast.makeText(this, "PermissionDenied, Please grant permission", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     private boolean validateform() {
         String exiGovtResp=exiGovtRespTime.getText().toString();
@@ -288,10 +313,12 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
                             String userID = preferences.getString("userID", "");
                             RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
                             reference = RootNode.getReference("users");
-//                            reference.child(id).child("latitude").setValue(lat);
-//                            reference.child(id).child("longitude").setValue(longitude1);
-                            reference.child(userID).child("latitude").setValue(17.325566899962084);  //17.325566899962084, 78.39983258938912
-                           reference.child(userID).child("longitude").setValue(78.39983258938912);
+
+                            reference.child(userID).child("latitude").setValue(lat);  //17.319401181464258, 78.40302230454013
+                           reference.child(userID).child("longitude").setValue(longitude1);
+
+
+
 
                             Toast.makeText(getApplicationContext(),"Done", Toast.LENGTH_SHORT).show();
 

@@ -274,8 +274,8 @@ public class CalculationActivity extends AppCompatActivity {
                 reference.child(userID).child("result").setValue(Result);
                 Toast.makeText(getApplicationContext(), Result, Toast.LENGTH_SHORT).show();
 
-//                Intent intent=new Intent(getApplicationContext(),MapsActivity.class);
-//                startActivity(intent);
+                Intent intent=new Intent(getApplicationContext(),MapsActivity.class);
+                startActivity(intent);
             }
         });
 
