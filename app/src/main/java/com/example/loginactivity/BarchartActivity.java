@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -30,7 +31,7 @@ public class BarchartActivity extends AppCompatActivity {
     // array list for storing entries.
     ArrayList barEntriesArrayList;
 
-    float arr[];
+    double arr[]= new double[20];
 
 
     @Override
@@ -39,19 +40,12 @@ public class BarchartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_barchart);
 
         Bundle extras = getIntent().getExtras();
-        arr = extras.getFloatArray("array");
+        arr = extras.getDoubleArray("array");
 
         Toast.makeText(getApplicationContext(), "arrayB"+arr, Toast.LENGTH_SHORT).show();
 
 
-        final ArrayList<String> xAxisLabel = new ArrayList<>();
-        xAxisLabel.add("Sun");
-        xAxisLabel.add("Mon");
-        xAxisLabel.add("Tue");
-        xAxisLabel.add("Wed");
-        xAxisLabel.add("Thu");
-        xAxisLabel.add("Fri");
-        xAxisLabel.add("Sat");
+
 
         barChart = findViewById(R.id.bargraph);
 
@@ -102,28 +96,30 @@ public class BarchartActivity extends AppCompatActivity {
         // creating a new array list
         barEntriesArrayList = new ArrayList<>();
 
+        Log.e("value",""+arr[0]);
+
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
-        barEntriesArrayList.add(new BarEntry(1f, arr[0]));
-        barEntriesArrayList.add(new BarEntry(2f, arr[1]));
-        barEntriesArrayList.add(new BarEntry(3f, arr[2]));
-        barEntriesArrayList.add(new BarEntry(4f, arr[3]));
-        barEntriesArrayList.add(new BarEntry(5f, arr[4]));
-        barEntriesArrayList.add(new BarEntry(6f, arr[5]));
-        barEntriesArrayList.add(new BarEntry(7f, arr[6]));
-        barEntriesArrayList.add(new BarEntry(8f, arr[7]));
-        barEntriesArrayList.add(new BarEntry(9f, arr[8]));
-        barEntriesArrayList.add(new BarEntry(10f, arr[9]));
-        barEntriesArrayList.add(new BarEntry(11f, arr[10]));
-        barEntriesArrayList.add(new BarEntry(12f, arr[11]));
-        barEntriesArrayList.add(new BarEntry(13f, arr[12]));
-        barEntriesArrayList.add(new BarEntry(14f, arr[13]));
-        barEntriesArrayList.add(new BarEntry(15f, arr[14]));
-        barEntriesArrayList.add(new BarEntry(16f, arr[15]));
-        barEntriesArrayList.add(new BarEntry(17f, arr[16]));
-        barEntriesArrayList.add(new BarEntry(18f, arr[17]));
-        barEntriesArrayList.add(new BarEntry(19f, arr[18]));
-        barEntriesArrayList.add(new BarEntry(20f, arr[19]));
+        barEntriesArrayList.add(new BarEntry(1f, (float) arr[0]));
+        barEntriesArrayList.add(new BarEntry(2f, (float) arr[1]));
+        barEntriesArrayList.add(new BarEntry(3f, (float) arr[2]));
+        barEntriesArrayList.add(new BarEntry(4f, (float) arr[3]));
+        barEntriesArrayList.add(new BarEntry(5f, (float) arr[4]));
+        barEntriesArrayList.add(new BarEntry(6f, (float) arr[5]));
+        barEntriesArrayList.add(new BarEntry(7f, (float) arr[6]));
+        barEntriesArrayList.add(new BarEntry(8f, (float) arr[7]));
+        barEntriesArrayList.add(new BarEntry(9f, (float) arr[8]));
+        barEntriesArrayList.add(new BarEntry(10f, (float) arr[9]));
+        barEntriesArrayList.add(new BarEntry(11f, (float) arr[10]));
+        barEntriesArrayList.add(new BarEntry(12f, (float) arr[11]));
+        barEntriesArrayList.add(new BarEntry(13f, (float) arr[12]));
+        barEntriesArrayList.add(new BarEntry(14f, (float) arr[13]));
+        barEntriesArrayList.add(new BarEntry(15f, (float) arr[14]));
+        barEntriesArrayList.add(new BarEntry(16f, (float) arr[15]));
+        barEntriesArrayList.add(new BarEntry(17f, (float) arr[16]));
+        barEntriesArrayList.add(new BarEntry(18f, (float) arr[17]));
+        barEntriesArrayList.add(new BarEntry(19f, (float) arr[18]));
+        barEntriesArrayList.add(new BarEntry(20f, (float) arr[19]));
 
     }
 
