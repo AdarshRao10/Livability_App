@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
             <TextView
                 android:text="Expected Response time taken for any governance activity (in day's numbers)"
                 android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:text="Percentage of Natural Environment available (in numbers)"
@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
             <TextView
                 android:text="Expected Percentage of Natural Environment (in numbers) "
                 android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:text="Your Existing marks for quality of life"

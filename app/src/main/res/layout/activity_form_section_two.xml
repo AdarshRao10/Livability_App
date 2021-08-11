@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
             <TextView
                 android:text="Expected Frequency of Public Mass Transport (in numbers)"
                 android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
             <TextView
                 android:text="Available Frequency of Private Mass Transport (in numbers)"
                 android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
             <TextView
                 android:text="Expected Frequency of Private Mass Transport (in numbers)"
                 android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
             <TextView
                 android:text="Existing Cost and Quality for availing Education facility in public sector(Marks from 0 to 10) "
                 android:layout_width="match_parent"

@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
             <TextView
                 android:text="Expected number of public spaces (in numbers)	"
                 android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
             <TextView
                 android:text="Number of existing visits made to neighbours per month (in numbers)"
                 android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
             <TextView
                 android:text="Number of expected visits made to neighbours per month (in numbers)"
                 android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <Button
                 android:id="@+id/btn_section3"

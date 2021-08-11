@@ -38,7 +38,7 @@
                 android:minHeight="48dp"
                 android:padding="8dp"
                 android:textSize="18sp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 tools:ignore="SpeakableTextPresentCheck" />
 
 
@@ -62,7 +62,7 @@
                 android:minHeight="48dp"
                 android:padding="8dp"
                 android:textSize="18sp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
@@ -84,7 +84,7 @@
                 android:layout_marginRight="15dp"
                 android:minHeight="48dp"
                 android:padding="8dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -107,7 +107,7 @@
                 android:layout_marginRight="15dp"
                 android:minHeight="48dp"
                 android:padding="8dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -200,7 +200,7 @@
                 android:layout_marginRight="15dp"
                 android:minHeight="48dp"
                 android:padding="8dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -274,7 +274,7 @@
                 android:layout_marginRight="15dp"
                 android:minHeight="48dp"
                 android:padding="8dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -298,7 +298,7 @@
                 android:layout_marginRight="15dp"
                 android:minHeight="48dp"
                 android:padding="8dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
