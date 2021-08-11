@@ -114,12 +114,12 @@ public class FormSectionFour extends AppCompatActivity {
                     rankNetworkSpeed =(networkSpeedAvailable-networkSpeedExpected)/100;
 
                     //get data from shared preference
-                    SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                    SharedPreferences sh = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
 
 // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
-                    String s1 = sh.getString("fname", "");
-                    String s2 = sh.getString("id", "");
+
+                    String id = sh.getString("Id", "");
 
 
                     RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
@@ -127,7 +127,7 @@ public class FormSectionFour extends AppCompatActivity {
 
                     SectionFourHelper sectionFourHelper = new SectionFourHelper(publicFacilitiesAvailability,publicFacilitiesExpected,publicEntertainmentUtilitiesAvailability,publicEntertaimnentUtilitiesExpected, networkSpeedAvailable,networkSpeedExpected);
 
-                    reference.child(s1).child("section4").setValue(sectionFourHelper);
+                    reference.child(id).child("section4").setValue(sectionFourHelper);
                     Toast.makeText(getApplicationContext(), "Section 4 complete", Toast.LENGTH_SHORT).show();
 
 //                Toast.makeText(getApplicationContext(), "rankPublicFacilities "+rankPublicFacilities, Toast.LENGTH_SHORT).show();

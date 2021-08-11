@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,6 +41,9 @@ public class LoginActivity extends AppCompatActivity {
         btnSkip = findViewById(R.id.btnSkip);
 
 
+
+
+
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,94 +61,60 @@ public class LoginActivity extends AppCompatActivity {
                     RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
                     reference = RootNode.getReference("users");
 
-                    //get id from shared pref
 
-                    // Retrieving the value using its keys the file name
-// must be same in both saving and retrieving the data
-                    SharedPreferences sh = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
-
-// The value will be default as empty string because for
-// the very first time when the app is opened, there is nothing to show
-                    String id = sh.getString("Id", "");
 
 
                     //get all values from edit Text
-                    String fname = txtfname.getText().toString() ;
-                    String password = txtPwd.getEditText().getText().toString();
+                    String fname = txtfname.getText().toString().trim() ;
+                    String password = txtPwd.getEditText().getText().toString().trim();
+
+
+                    Query checkuser = reference.orderByChild("userid").equalTo(fname);
 
                  //   Query checkuser = reference.orderByChild("fname").equalTo(fname);
-                    Query checkuser = reference.orderByChild("id").equalTo(id);
+                  //  Query checkuser = reference.orderByChild("id").equalTo(id);
+                  //  Query pass = reference.orderByChild("password").equalTo(password);
 
-                    checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                               checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if(snapshot.exists())
+                                        {
+                                            //if data exist remove error msg from edit text
+                                            txtfname.setError(null);
+                                            txtfname.setError(null);
 
-                          //  Toast.makeText(getApplicationContext(), "id matches", Toast.LENGTH_SHORT).show();
-                            if(snapshot.exists()){
-                                //if data exist remove error msg from edit text
-                                txtfname.setError(null);
-                                txtfname.setError(null);
+                                            String passFromDB =snapshot.child(fname).child("password").getValue(String.class);
+                                            if(passFromDB.equals(password)){
+                                                Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_SHORT).show();
+                                                Intent Terms = new Intent(getApplicationContext(),FormSectionOne.class);
+                                                startActivity(Terms);
+                                            }
+                                            else{
+                                                txtPwd.setError("Wrong Password");
+                                                txtPwd.requestFocus();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            txtfname.setError("Invalid user!");
+                                            txtfname.requestFocus();
+                                        }
+                                    }
 
-                                //String passFromDB =snapshot.child(id).child("password").getValue(String.class);
-                                Toast.makeText(getApplicationContext(), "user exist", Toast.LENGTH_SHORT).show();
-//                                Toast.makeText(getApplicationContext(), id, Toast.LENGTH_SHORT).show();
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
 
-                                String passFromDB =snapshot.child(id).child("password").getValue(String.class);
-                                if(passFromDB.equals(password)) {
-                                    Toast.makeText(getApplicationContext(),"login successfull!!",Toast.LENGTH_SHORT).show();
-                                    //get user data into shared preference.
-                                    String fnameFromDB = snapshot.child(fname).child("fname").getValue(String.class);
-                                    String lnameFromDB = snapshot.child(fname).child("lname").getValue(String.class);
-                                    String emailFromDB = snapshot.child(fname).child("email").getValue(String.class);
-                                    String ageFromDB = snapshot.child(fname).child("age").getValue(String.class);
-                                    String genderFromDB = snapshot.child(fname).child("gender").getValue(String.class);
-                                    String id = snapshot.child(fname).child("id").getValue(String.class);
-
-                                    //store data in shared pref
-                                    // Storing data into SharedPreferences
-                                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-
-                                    // Creating an Editor object to edit(write to the file)
-                                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
-
-                                    // Storing the key and its value as the data fetched from edittext
-                                    myEdit.putString("fname", fnameFromDB);
-                                    myEdit.putString("lname", lnameFromDB);
-                                    myEdit.putString("email", emailFromDB);
-                                    myEdit.putString("age", ageFromDB);
-                                    myEdit.putString("gender", genderFromDB);
-                                    myEdit.putString("id", id);
-
-                                    // Once the changes have been made,
-                                    // we need to commit to apply those changes made,
-                                    // otherwise, it will throw an error
-                                    myEdit.commit();
+                                    }
+                                });
 
 
 
-                                    Intent Terms = new Intent(getApplicationContext(),Terms.class);
-                                    startActivity(Terms);
-                                }
-                                else{
-                                    txtPwd.setError("Wrong Password");
-                                    txtPwd.requestFocus();
-                                }
 
 
-                            }
-                            else
-                            {
-                                txtfname.setError("User does not exist!");
-                                txtfname.requestFocus();
-                            }
 
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                    });
                 }
             }
         });

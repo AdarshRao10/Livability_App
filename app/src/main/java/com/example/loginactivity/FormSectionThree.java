@@ -64,12 +64,12 @@ public class FormSectionThree extends AppCompatActivity {
 
 
                     //get data from shared preference
-                    SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                    SharedPreferences sh = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
 
 // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
-                    String s1 = sh.getString("fname", "");
-                    String s2 = sh.getString("id", "");
+
+                    String id = sh.getString("Id", "");
 
 
                     RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
@@ -77,7 +77,7 @@ public class FormSectionThree extends AppCompatActivity {
 
                     SectionThreeHelper sectionThreeHelper = new SectionThreeHelper( availPubSpacesVar,  expPubSpacesVar,  exiNeighVisitsVar,  expNeighVisitsVar);
 
-                    reference.child(s1).child("section3").setValue(sectionThreeHelper);
+                    reference.child(id).child("section3").setValue(sectionThreeHelper);
                     Toast.makeText(getApplicationContext(), "Section 3 complete", Toast.LENGTH_SHORT).show();
 
 //                Toast.makeText(FormSectionThree.this, "resPubSpaces : "+resPubSpaces, Toast.LENGTH_SHORT).show();

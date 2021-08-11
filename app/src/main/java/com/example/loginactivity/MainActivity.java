@@ -1,5 +1,6 @@
 package com.example.loginactivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,15 +15,19 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.lang.ref.Reference;
 import java.security.PrivateKey;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    EditText txtfname,txtlname,txtEmail,txtAge,txtGender,txtQualify,txtprof,txtPurpose,et_day,et_month,et_year;
+    EditText txtfname,txtlname,txtEmail,txtAge,txtGender,txtQualify,txtprof,txtPurpose,et_day,et_month,et_year,txtUserId;
     TextInputLayout txtPwd;
     Button btnReg ,btnLogin;
     String[] GenderType;
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         et_month=findViewById(R.id.et_month);
         et_year=findViewById(R.id.et_year);
         btnLogin = findViewById(R.id.btnLogin);
+        txtUserId = findViewById(R.id.txtUserId);
 
         // Spinner element
          spinner =findViewById(R.id.spinner);
@@ -81,49 +87,61 @@ public class MainActivity extends AppCompatActivity {
 
                 if(validateform())
                 {
+                    String userid = txtUserId.getText().toString();
+
                     RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
                     reference = RootNode.getReference("users");
 
-                    //get all values from edit Text
-                    String fname = txtfname.getText().toString() ;
-                    String lname = txtlname.getText().toString() ;
-                    String email = txtEmail.getText().toString() ;
-                    String age = txtAge.getText().toString() ;
-                    String gender = spinner.getSelectedItem().toString();
-                    String qualification = txtQualify.getText().toString() ;
-                    String profession = txtprof.getText().toString() ;
-                    String purpose = txtPurpose.getText().toString() ;
-                    String day= et_day.getText().toString();
-                    String month=et_month.getText().toString();
-                    String year = et_year.getText().toString();
-                    String password =year+month+day;
-                    //String password = txtPwd.getEditText().getText().toString() ;
 
-                    //get uniqueID
-                    String postID = reference.push().getKey();
+            Query checkuser = reference.orderByChild("userid").equalTo(userid);
+            checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        txtUserId.setError("choose unique userid");
+                    }
+                    else {
 
-                    //save id in sharedpref
-                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
+                        //get all values from edit Text
+                        String fname = txtfname.getText().toString() ;
+                        String lname = txtlname.getText().toString() ;
+                        String email = txtEmail.getText().toString() ;
+                        String age = txtAge.getText().toString() ;
+                        String gender = spinner.getSelectedItem().toString();
+                        String qualification = txtQualify.getText().toString() ;
+                        String profession = txtprof.getText().toString() ;
+                        String purpose = txtPurpose.getText().toString() ;
+                        String day= et_day.getText().toString();
+                        String month=et_month.getText().toString();
+                        String year = et_year.getText().toString();
+                        String password =year+month+day;
+//                    String userid = txtUserId.getText().toString();
+                        //String password = txtPwd.getEditText().getText().toString() ;
 
-                    // Creating an Editor object to edit(write to the file)
-                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
-
-                    // Storing the key and its value as the data fetched from edittext
-                    myEdit.putString("Id", postID);
 
 
-                    // Once the changes have been made,
-                    // we need to commit to apply those changes made,
-                    // otherwise, it will throw an error
-                    myEdit.commit();
+                        UserHelperClass helperClass = new UserHelperClass(userid ,fname, lname, email, age, gender,  qualification, profession,  purpose, password);
 
-                    UserHelperClass helperClass = new UserHelperClass(postID ,fname, lname, email, age, gender,  qualification, profession,  purpose, password);
+                        reference.child(userid).setValue(helperClass);
+                        // reference.child(fname).setValue(helperClass);
+                        // reference.push().setValue(helperClass);
 
-                    reference.child(postID).setValue(helperClass);
-                   // reference.child(fname).setValue(helperClass);
-                   // reference.push().setValue(helperClass);
-                    Toast.makeText(getApplicationContext(),postID,Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(),"Registration successfull!!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Registration successfull!!",Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            } );
+
+
+
 
                 }
 
@@ -139,89 +157,144 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    private boolean validateform(){
-        String fname = txtfname.getText().toString() ;
-        String lname = txtlname.getText().toString() ;
-        String email = txtEmail.getText().toString() ;
-        String age = txtAge.getText().toString() ;
-        String gender = spinner.getSelectedItem().toString() ;
-        String qualification = txtQualify.getText().toString() ;
-        String profession = txtprof.getText().toString() ;
-        String purpose = txtPurpose.getText().toString() ;
-        String day= et_day.getText().toString();
-        String month=et_month.getText().toString();
+    private boolean validateform() {
+        String fname = txtfname.getText().toString();
+        String lname = txtlname.getText().toString();
+        String email = txtEmail.getText().toString();
+        String age = txtAge.getText().toString();
+        String gender = spinner.getSelectedItem().toString();
+        String qualification = txtQualify.getText().toString();
+        String profession = txtprof.getText().toString();
+        String purpose = txtPurpose.getText().toString();
+        String day = et_day.getText().toString();
+        String month = et_month.getText().toString();
         String year = et_year.getText().toString();
-        String password =day+month+year;
-       // String password = txtPwd.getEditText().getText().toString() ;
+        String password = day + month + year;
+        String userid = txtUserId.getText().toString();
+        // String password = txtPwd.getEditText().getText().toString() ;
 
-        if(fname.isEmpty()){
+        if (fname.isEmpty()) {
             txtfname.setError("Field cannot be empty");
             return false;
         }
-        if(lname.isEmpty()){
+        if (lname.isEmpty()) {
             txtlname.setError("Field cannot be empty");
             return false;
         }
-        if(email.isEmpty()){
+        if (email.isEmpty()) {
             txtEmail.setError("Field cannot be empty");
             return false;
         }
 
-         if (!email.trim().matches(emailPattern)) {
+        if (!email.trim().matches(emailPattern)) {
             //Toast.makeText(getApplicationContext(),"valid email address",Toast.LENGTH_SHORT).show();
-             txtEmail.setError("Invalid Email Address");
+            txtEmail.setError("Invalid Email Address");
         }
 
-        if(age.isEmpty()){
+        if (age.isEmpty()) {
             txtAge.setError("Field cannot be empty");
             return false;
         }
-        if(gender.isEmpty()){
+        if (gender.isEmpty()) {
             txtGender.setError("Field cannot be empty");
             return false;
         }
-        if(qualification.isEmpty()){
+        if (qualification.isEmpty()) {
             txtQualify.setError("Field cannot be empty");
             return false;
         }
-        if(profession.isEmpty()){
+        if (profession.isEmpty()) {
             txtprof.setError("Field cannot be empty");
             return false;
         }
-        if(purpose.isEmpty()){
+        if (purpose.isEmpty()) {
             txtPurpose.setError("Field cannot be empty");
             return false;
         }
 
-        if(year.isEmpty()){
+        if (year.isEmpty()) {
             et_year.setError("Year cannot be empty");
-        }else if(year.length()!=4){
+        } else if (year.length() != 4) {
             et_year.setError("Enter correct year");
         }
 
-        if(month.isEmpty()){
+        if (month.isEmpty()) {
             et_year.setError("Year cannot be empty");
-        }else if(Integer.parseInt(month)>12 && Integer.parseInt(month)<0){
+        } else if (Integer.parseInt(month) > 12 && Integer.parseInt(month) < 0) {
             et_year.setError("Enter correct month");
         }
 
-        if(day.isEmpty()){
+        if (day.isEmpty()) {
             et_year.setError("day cannot be empty");
-        }else if(Integer.parseInt(day)>31 && Integer.parseInt(day)<0){
+        } else if (Integer.parseInt(day) > 31 && Integer.parseInt(day) < 0) {
             et_year.setError("Enter correct day");
         }
 
-        if(password.isEmpty()){
+        if (password.isEmpty()) {
             txtPwd.setError("Field cannot be empty");
             return false;
-        }
-        else if (password.length() < 8) {
-           txtPwd.setError("Password must be minimum 8 characters");
+        } else if (password.length() < 8) {
+            txtPwd.setError("Password must be minimum 8 characters");
             return false;
         }
 
-        // after all validation return true.
+        if(userid.isEmpty()) {
+            txtUserId.setError("User id field empty!");
+            return false;
+        }
+//        else
+//        {
+//            RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
+//            reference = RootNode.getReference("users");
+//            Query checkuser = reference.orderByChild("userid").equalTo(userid);
+//            checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    if (snapshot.exists()) {
+//                        txtUserId.setError("choose unique userid");
+//                    }
+//
+//
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                }
+//            } );
+//            return false;
+
+
+//            if (checkuser == null) {
+//                Toast.makeText(getApplicationContext(), "No data exist", Toast.LENGTH_SHORT).show();
+//                return true;
+//            }
+//            else {
+//                checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if (snapshot.exists()) {
+//                            txtUserId.setError("choose unique userid");
+//                        }
+//
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//                return false;
+//            }
+// after all validation return true.
         return true;
+        }
+
+
 
     }
-}
+
+
+
+

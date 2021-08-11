@@ -147,12 +147,12 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
                     rankNatEnv=(availNatEnvVar-expNatEnvVar)/100;
 
                     //get data from shared preference
-                    SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                    SharedPreferences sh = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
 
 // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
-                    String s1 = sh.getString("fname", "");
-                    String s2 = sh.getString("id", "");
+
+                    String id = sh.getString("Id", "");
 
 
 
@@ -161,7 +161,7 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
                     SectionFiveSixSevenHelper sectionFiveSixSevenHelper = new SectionFiveSixSevenHelper(exiQualityVar,expQualityVar,exiGovtRespTimeVar,expGovtRespTimeVar,availNatEnvVar,expNatEnvVar);
 
-                    reference.child(s1).child("section5").setValue(sectionFiveSixSevenHelper);
+                    reference.child(id).child("section5").setValue(sectionFiveSixSevenHelper);
                     Toast.makeText(getApplicationContext(), "Section 5 complete", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(getApplicationContext(),CalculationActivity.class);
@@ -281,11 +281,25 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 //                            latitude.setText(String.format("%s", lat));
 //                            longitude.setText(String.format("%s",longitude1));
 
-                            Toast.makeText(getApplicationContext()," "+lat+" "+longitude1, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext()," "+lat+" "+longitude1, Toast.LENGTH_SHORT).show();
 
-                            Intent intent=new Intent(getApplicationContext(),MapsActivity.class);
-                            intent.putExtra("latitude",lat);
-                            intent.putExtra("longitude",longitude1);
+                            SharedPreferences sh = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
+                            String id = sh.getString("Id", "");
+                            RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
+                            reference = RootNode.getReference("users");
+//                            reference.child(id).child("latitude").setValue(lat);
+//                            reference.child(id).child("longitude").setValue(longitude1);
+                            reference.child(id).child("latitude").setValue(17.325566899962084);  //17.325566899962084, 78.39983258938912
+                           reference.child(id).child("longitude").setValue(78.39983258938912);
+
+                            Toast.makeText(getApplicationContext(),"Done", Toast.LENGTH_SHORT).show();
+
+//                            Intent intent=new Intent(getApplicationContext(),MapsActivity.class);
+//                            intent.putExtra("latitude",lat);
+//                            intent.putExtra("longitude",longitude1);
+//                            startActivity(intent);
+
+                            Intent intent=new Intent(getApplicationContext(),CalculationActivity.class);
                             startActivity(intent);
                         }
                     }

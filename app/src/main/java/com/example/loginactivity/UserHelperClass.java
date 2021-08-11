@@ -2,7 +2,7 @@ package com.example.loginactivity;
 
 public class UserHelperClass {
 
-    String Id,fname,lname,email,age,gender,qualification,profession,purpose,password;
+    String fname,lname,email,age,gender,qualification,profession,purpose,password,userid;
 
     public UserHelperClass() {
 
@@ -10,8 +10,8 @@ public class UserHelperClass {
 
 
 
-    public UserHelperClass(String postID, String fname, String lname, String email, String age, String gender, String qualification, String profession, String purpose, String password) {
-        this.Id = postID;
+    public UserHelperClass(String userid, String fname, String lname, String email, String age, String gender, String qualification, String profession, String purpose, String password) {
+        this.userid = userid;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
@@ -23,12 +23,12 @@ public class UserHelperClass {
         this.password = password;
     }
 
-    public String getId() {
-        return Id;
+    public String getUserid() {
+        return userid;
     }
 
-    public void setId(String id) {
-        Id = id;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public String getFname() {

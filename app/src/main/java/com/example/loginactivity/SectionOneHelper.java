@@ -1,14 +1,16 @@
 package com.example.loginactivity;
 
 public class SectionOneHelper{
-    float waterAvailability,waterExpected,electricityAvailability,electricityExpected,cost_health_public_existing,cost_health_public_expected,cost_health_private_existing,cost_health_private_expected,cost_renting_existing,cost_renting_expected;
+    float sanitationAvailable,sanitationExpected,waterAvailability,waterExpected,electricityAvailability,electricityExpected,cost_health_public_existing,cost_health_public_expected,cost_health_private_existing,cost_health_private_expected,cost_renting_existing,cost_renting_expected;
 
     public SectionOneHelper() {
 
     }
 
 
-    public SectionOneHelper(float waterAvailability, float waterExpected, float electricityAvailability, float electricityExpected, float cost_health_public_existing, float cost_health_public_expected, float cost_health_private_existing, float cost_health_private_expected, float cost_renting_existing, float cost_renting_expected) {
+    public SectionOneHelper(float sanitationAvailable,float sanitationExpected, float waterAvailability, float waterExpected, float electricityAvailability, float electricityExpected, float cost_health_public_existing, float cost_health_public_expected, float cost_health_private_existing, float cost_health_private_expected, float cost_renting_existing, float cost_renting_expected) {
+        this.sanitationAvailable = sanitationAvailable;
+        this.sanitationExpected = sanitationExpected;
         this.waterAvailability = waterAvailability;
         this.waterExpected = waterExpected;
         this.electricityAvailability = electricityAvailability;
@@ -19,6 +21,22 @@ public class SectionOneHelper{
         this.cost_health_private_expected = cost_health_private_expected;
         this.cost_renting_existing = cost_renting_existing;
         this.cost_renting_expected = cost_renting_expected;
+    }
+
+    public float getSanitationAvailable() {
+        return sanitationAvailable;
+    }
+
+    public void setSanitationAvailable(float sanitationAvailable) {
+        this.sanitationAvailable = sanitationAvailable;
+    }
+
+    public float getSanitationExpected() {
+        return sanitationExpected;
+    }
+
+    public void setSanitationExpected(float sanitationExpected) {
+        this.sanitationExpected = sanitationExpected;
     }
 
     public float getWaterAvailability() {
