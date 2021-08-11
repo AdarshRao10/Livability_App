@@ -52,8 +52,8 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
     int max=10;
 
-    private static final int loc_permission = 1;
-    double lat,longitude1;
+//    private static final int loc_permission = 1;
+//    double lat,longitude1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,16 +165,16 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
                     reference.child(userID).child("section5").setValue(sectionFiveSixSevenHelper);
                     Toast.makeText(getApplicationContext(), "Section 5 complete", Toast.LENGTH_SHORT).show();
 
-                    if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
-                            != PackageManager.PERMISSION_GRANTED) {
-                        // Permission is not granted
-                        ActivityCompat.requestPermissions(FormSectionFiveSixSeven.this,
-                                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                                loc_permission);
-                    } else {
-                        //permission granted
-                        GetCurrentLocation();
-                    }
+//                    if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+//                            != PackageManager.PERMISSION_GRANTED) {
+//                        // Permission is not granted
+//                        ActivityCompat.requestPermissions(FormSectionFiveSixSeven.this,
+//                                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+//                                loc_permission);
+//                    } else {
+//                        //permission granted
+//                        GetCurrentLocation();
+//                    }
 
                     Intent intent = new Intent(getApplicationContext(),CalculationActivity.class);
                     startActivity(intent);
@@ -226,18 +226,18 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode==1 && grantResults.length>0 &&
-                (grantResults[0]+grantResults[1] ==PackageManager.PERMISSION_GRANTED)){
-//            When permission granted call getLocation
-            GetCurrentLocation();
-        }else{
-//            If permission Denied
-            Toast.makeText(this, "PermissionDenied, Please grant permission", Toast.LENGTH_SHORT).show();
-        }
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if (requestCode==1 && grantResults.length>0 &&
+//                (grantResults[0]+grantResults[1] ==PackageManager.PERMISSION_GRANTED)){
+////            When permission granted call getLocation
+//            GetCurrentLocation();
+//        }else{
+////            If permission Denied
+//            Toast.makeText(this, "PermissionDenied, Please grant permission", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 
     private boolean validateform() {
@@ -285,56 +285,56 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
     }
 
-    @SuppressLint("MissingPermission")
-    private void GetCurrentLocation() {
-
-        LocationRequest locationReq = new LocationRequest();
-        locationReq.setInterval(10000);
-        locationReq.setFastestInterval(3000);
-        locationReq.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-
-
-        LocationServices.getFusedLocationProviderClient(FormSectionFiveSixSeven.this)
-                .requestLocationUpdates(locationReq, new LocationCallback() {
-                    @Override
-                    public void onLocationResult(@NonNull LocationResult locationResult) {
-                        super.onLocationResult(locationResult);
-                        LocationServices.getFusedLocationProviderClient(FormSectionFiveSixSeven.this).removeLocationUpdates(this);
-                        if(locationResult != null && locationResult.getLocations().size() > 0) {
-                            int latestLocatioIndex = locationResult.getLocations().size() - 1;
-                            lat = locationResult.getLocations().get(latestLocatioIndex).getLatitude();
-                            longitude1 = locationResult.getLocations().get(latestLocatioIndex).getLongitude();
-//                            latitude.setText(String.format("%s", lat));
-//                            longitude.setText(String.format("%s",longitude1));
-
-                            //Toast.makeText(getApplicationContext()," "+lat+" "+longitude1, Toast.LENGTH_SHORT).show();
-
-                            SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
-                            String userID = preferences.getString("userID", "");
-                            RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
-                            reference = RootNode.getReference("users");
-
-                            reference.child(userID).child("latitude").setValue(lat);  //17.319401181464258, 78.40302230454013
-                           reference.child(userID).child("longitude").setValue(longitude1);
-
-
-
-
-                            Toast.makeText(getApplicationContext(),"Done", Toast.LENGTH_SHORT).show();
-
-//                            Intent intent=new Intent(getApplicationContext(),MapsActivity.class);
-//                            intent.putExtra("latitude",lat);
-//                            intent.putExtra("longitude",longitude1);
+//    @SuppressLint("MissingPermission")
+//    private void GetCurrentLocation() {
+//
+//        LocationRequest locationReq = new LocationRequest();
+//        locationReq.setInterval(10000);
+//        locationReq.setFastestInterval(3000);
+//        locationReq.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+//
+//
+//        LocationServices.getFusedLocationProviderClient(FormSectionFiveSixSeven.this)
+//                .requestLocationUpdates(locationReq, new LocationCallback() {
+//                    @Override
+//                    public void onLocationResult(@NonNull LocationResult locationResult) {
+//                        super.onLocationResult(locationResult);
+//                        LocationServices.getFusedLocationProviderClient(FormSectionFiveSixSeven.this).removeLocationUpdates(this);
+//                        if(locationResult != null && locationResult.getLocations().size() > 0) {
+//                            int latestLocatioIndex = locationResult.getLocations().size() - 1;
+//                            lat = locationResult.getLocations().get(latestLocatioIndex).getLatitude();
+//                            longitude1 = locationResult.getLocations().get(latestLocatioIndex).getLongitude();
+////                            latitude.setText(String.format("%s", lat));
+////                            longitude.setText(String.format("%s",longitude1));
+//
+//                            //Toast.makeText(getApplicationContext()," "+lat+" "+longitude1, Toast.LENGTH_SHORT).show();
+//
+//                            SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+//                            String userID = preferences.getString("userID", "");
+//                            RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
+//                            reference = RootNode.getReference("users");
+//
+//                            reference.child(userID).child("latitude").setValue(lat);  //17.319401181464258, 78.40302230454013
+//                           reference.child(userID).child("longitude").setValue(longitude1);
+//
+//
+//
+//
+//                            Toast.makeText(getApplicationContext(),"Done", Toast.LENGTH_SHORT).show();
+//
+////                            Intent intent=new Intent(getApplicationContext(),MapsActivity.class);
+////                            intent.putExtra("latitude",lat);
+////                            intent.putExtra("longitude",longitude1);
+////                            startActivity(intent);
+//
+//                            Intent intent=new Intent(getApplicationContext(),CalculationActivity.class);
 //                            startActivity(intent);
-
-                            Intent intent=new Intent(getApplicationContext(),CalculationActivity.class);
-                            startActivity(intent);
-                        }
-                    }
-                }, Looper.getMainLooper());
-
-
-    }
+//                        }
+//                    }
+//                }, Looper.getMainLooper());
+//
+//
+//    }
 
 }
 
