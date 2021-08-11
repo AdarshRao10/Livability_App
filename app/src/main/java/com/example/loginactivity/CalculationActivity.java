@@ -89,7 +89,7 @@ public class CalculationActivity extends AppCompatActivity {
 
 
 
-    Button goToMaps,goToGraphs;
+    Button goToMaps,goToGraphs,logout;
     int countGreen=0,countBlue=0,countRed=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +98,7 @@ public class CalculationActivity extends AppCompatActivity {
 
         goToMaps=findViewById(R.id.goToMaps);
         goToGraphs=findViewById(R.id.goToGraphs);
+        logout=findViewById(R.id.logout);
 
          //1st get values from all section
         RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
@@ -285,6 +286,24 @@ public class CalculationActivity extends AppCompatActivity {
                 Intent intent=new Intent(getApplicationContext(),BarchartActivity.class);
                 intent.putExtra("array",arr);
                 startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+
+                editor.remove("userID");
+                editor.clear();
+                editor.commit();
+
+                Toast.makeText(CalculationActivity.this, "Cleared", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                finish();
+
             }
         });
 

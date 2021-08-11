@@ -42,12 +42,19 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+        btnSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),SectionOneNoLogin.class));
+            }
+        });
+
 
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Register = new Intent(getApplicationContext(),Terms.class);
+                Intent Register = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(Register);
             }
         });
@@ -96,6 +103,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                                 Intent Terms = new Intent(getApplicationContext(),FormSectionOne.class);
                                                 startActivity(Terms);
+
+                                                finish();
 
                                             }
                                             else{
