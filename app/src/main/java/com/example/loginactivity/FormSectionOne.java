@@ -137,12 +137,12 @@ public class FormSectionOne extends AppCompatActivity {
                     //get data from shared preference
                     // Retrieving the value using its keys the file name
 // must be same in both saving and retrieving the data
-                    SharedPreferences sh = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
+                    SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+                    String userID = preferences.getString("userID", "");
 
 // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
                    // String s1 = sh.getString("fname", "");
-                    String id = sh.getString("Id", "");
 
 
                     RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
@@ -150,7 +150,7 @@ public class FormSectionOne extends AppCompatActivity {
 
                     SectionOneHelper sectionOneHelper = new SectionOneHelper(sanitationAvailable,sanitationExpected, waterAvailability,  waterExpected,  electricityAvailability,  electricityExpected, cost_health_public_existing, cost_health_public_expected,  cost_health_private_existing,  cost_health_private_expected,  cost_renting_existing, cost_renting_expected);
 
-                    reference.child(id).child("section1").setValue(sectionOneHelper);
+                    reference.child(userID).child("section1").setValue(sectionOneHelper);
 
                     // to append data
 //                HashMap<String,Object> values = new HashMap<>();

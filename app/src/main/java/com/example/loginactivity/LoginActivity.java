@@ -87,8 +87,16 @@ public class LoginActivity extends AppCompatActivity {
                                             String passFromDB =snapshot.child(fname).child("password").getValue(String.class);
                                             if(passFromDB.equals(password)){
                                                 Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_SHORT).show();
+
+                                                SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+                                                SharedPreferences.Editor editor=preferences.edit();
+
+                                                editor.putString("userID",fname);
+                                                editor.commit();
+
                                                 Intent Terms = new Intent(getApplicationContext(),FormSectionOne.class);
                                                 startActivity(Terms);
+
                                             }
                                             else{
                                                 txtPwd.setError("Wrong Password");

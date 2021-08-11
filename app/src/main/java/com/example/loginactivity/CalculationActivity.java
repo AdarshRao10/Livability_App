@@ -99,26 +99,26 @@ public class CalculationActivity extends AppCompatActivity {
         reference = RootNode.getReference("users");
 
 
-        SharedPreferences sh = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
-        String id = sh.getString("Id", "");
-        Query checkuser = reference.orderByChild("id").equalTo(id);
+        SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+        String userID = preferences.getString("userID", "");
+        Query checkuser = reference.orderByChild("id").equalTo(userID);
 
         checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                     waterAvailability = snapshot.child(id).child("section1").child("waterAvailability").getValue(Float.class);
-                     waterExpected = snapshot.child(id).child("section1").child("waterExpected").getValue(Float.class);
-                     electricityAvailability = snapshot.child(id).child("section1").child("electricityAvailability").getValue(Float.class);
-                     electricityExpected = snapshot.child(id).child("section1").child("electricityExpected").getValue(Float.class);
-                     sanitationAvailable = snapshot.child(id).child("section1").child("sanitationAvailable").getValue(Float.class);
-                     sanitationExpected = snapshot.child(id).child("section1").child("sanitationExpected").getValue(Float.class);
-                     cost_health_public_existing = snapshot.child(id).child("section1").child("cost_health_public_existing").getValue(Float.class);
-                     cost_health_public_expected = snapshot.child(id).child("section1").child("cost_health_public_expected").getValue(Float.class);
-                     cost_health_private_existing = snapshot.child(id).child("section1").child("waterAvailability").getValue(Float.class);
-                     cost_health_private_expected = snapshot.child(id).child("section1").child("cost_health_private_expected").getValue(Float.class);
-                     cost_renting_existing = snapshot.child(id).child("section1").child("cost_renting_existing").getValue(Float.class);
-                     cost_renting_expected = snapshot.child(id).child("section1").child("cost_renting_expected").getValue(Float.class);
+                     waterAvailability = snapshot.child(userID).child("section1").child("waterAvailability").getValue(Float.class);
+                     waterExpected = snapshot.child(userID).child("section1").child("waterExpected").getValue(Float.class);
+                     electricityAvailability = snapshot.child(userID).child("section1").child("electricityAvailability").getValue(Float.class);
+                     electricityExpected = snapshot.child(userID).child("section1").child("electricityExpected").getValue(Float.class);
+                     sanitationAvailable = snapshot.child(userID).child("section1").child("sanitationAvailable").getValue(Float.class);
+                     sanitationExpected = snapshot.child(userID).child("section1").child("sanitationExpected").getValue(Float.class);
+                     cost_health_public_existing = snapshot.child(userID).child("section1").child("cost_health_public_existing").getValue(Float.class);
+                     cost_health_public_expected = snapshot.child(userID).child("section1").child("cost_health_public_expected").getValue(Float.class);
+                     cost_health_private_existing = snapshot.child(userID).child("section1").child("waterAvailability").getValue(Float.class);
+                     cost_health_private_expected = snapshot.child(userID).child("section1").child("cost_health_private_expected").getValue(Float.class);
+                     cost_renting_existing = snapshot.child(userID).child("section1").child("cost_renting_existing").getValue(Float.class);
+                     cost_renting_expected = snapshot.child(userID).child("section1").child("cost_renting_expected").getValue(Float.class);
                      water = (waterAvailability - waterExpected)/100;
                      electricity= (electricityAvailability-electricityExpected)/100;
                      sanitation = (sanitationAvailable-sanitationExpected)/100;
@@ -126,18 +126,18 @@ public class CalculationActivity extends AppCompatActivity {
                      private_health_sys = (cost_health_private_expected-cost_health_private_existing)/100;
                      housing = (cost_renting_expected-cost_health_private_existing)/100;
 
-                    availPubTransVar = snapshot.child(id).child("section2").child("availPubTransVar").getValue(Float.class);
-                    expPubTransVar = snapshot.child(id).child("section2").child("expPubTransVar").getValue(Float.class);
-                    availPriTransVar = snapshot.child(id).child("section2").child("availPriTransVar").getValue(Float.class);
-                    expPriTransVar = snapshot.child(id).child("section2").child("expPriTransVar").getValue(Float.class);
-                    exiEduFacPubVar = snapshot.child(id).child("section2").child("exiEduFacPubVar").getValue(Float.class);
-                    expEduFacPubVar = snapshot.child(id).child("section2").child("expEduFacPubVar").getValue(Float.class);
-                    exiEduFacPriVar = snapshot.child(id).child("section2").child("exiEduFacPriVar").getValue(Float.class);
-                    expEduFacPriVar = snapshot.child(id).child("section2").child("expEduFacPriVar").getValue(Float.class);
-                    availPolStationVar = snapshot.child(id).child("section2").child("availPolStationVar").getValue(Float.class);
-                    expPolStationVar = snapshot.child(id).child("section2").child("expPolStationVar").getValue(Float.class);
-                    exiSalVar = snapshot.child(id).child("section2").child("exiSalVar").getValue(Float.class);
-                    expSalVar = snapshot.child(id).child("section2").child("expSalVar").getValue(Float.class);
+                    availPubTransVar = snapshot.child(userID).child("section2").child("availPubTransVar").getValue(Float.class);
+                    expPubTransVar = snapshot.child(userID).child("section2").child("expPubTransVar").getValue(Float.class);
+                    availPriTransVar = snapshot.child(userID).child("section2").child("availPriTransVar").getValue(Float.class);
+                    expPriTransVar = snapshot.child(userID).child("section2").child("expPriTransVar").getValue(Float.class);
+                    exiEduFacPubVar = snapshot.child(userID).child("section2").child("exiEduFacPubVar").getValue(Float.class);
+                    expEduFacPubVar = snapshot.child(userID).child("section2").child("expEduFacPubVar").getValue(Float.class);
+                    exiEduFacPriVar = snapshot.child(userID).child("section2").child("exiEduFacPriVar").getValue(Float.class);
+                    expEduFacPriVar = snapshot.child(userID).child("section2").child("expEduFacPriVar").getValue(Float.class);
+                    availPolStationVar = snapshot.child(userID).child("section2").child("availPolStationVar").getValue(Float.class);
+                    expPolStationVar = snapshot.child(userID).child("section2").child("expPolStationVar").getValue(Float.class);
+                    exiSalVar = snapshot.child(userID).child("section2").child("exiSalVar").getValue(Float.class);
+                    expSalVar = snapshot.child(userID).child("section2").child("expSalVar").getValue(Float.class);
                     public_mass_transport=(availPubTransVar-expPubTransVar)/100;
                     private_mass_transport=(availPriTransVar-expPriTransVar)/100;
                     public_edu_sys=(exiEduFacPriVar-expEduFacPriVar)/100;
@@ -145,29 +145,29 @@ public class CalculationActivity extends AppCompatActivity {
                     safety_security=(availPolStationVar-expPolStationVar)/100;
                     emp_opportunity=(exiSalVar-expSalVar)/100;
 
-                    availPubSpacesVar = snapshot.child(id).child("section3").child("availPubSpacesVar").getValue(Float.class);
-                    expPubSpacesVar = snapshot.child(id).child("section3").child("expPubSpacesVar").getValue(Float.class);
-                    exiNeighVisitsVar = snapshot.child(id).child("section3").child("exiNeighVisitsVar").getValue(Float.class);
-                    expNeighVisitsVar = snapshot.child(id).child("section3").child("expNeighVisitsVar").getValue(Float.class);
+                    availPubSpacesVar = snapshot.child(userID).child("section3").child("availPubSpacesVar").getValue(Float.class);
+                    expPubSpacesVar = snapshot.child(userID).child("section3").child("expPubSpacesVar").getValue(Float.class);
+                    exiNeighVisitsVar = snapshot.child(userID).child("section3").child("exiNeighVisitsVar").getValue(Float.class);
+                    expNeighVisitsVar = snapshot.child(userID).child("section3").child("expNeighVisitsVar").getValue(Float.class);
                     public_space=(availPubSpacesVar-expPubSpacesVar)/100;
                     community=(exiNeighVisitsVar-expNeighVisitsVar)/100;
 
-                    publicFacilitiesAvailability = snapshot.child(id).child("section4").child("publicFacilitiesAvailability").getValue(Float.class);
-                    publicFacilitiesExpected = snapshot.child(id).child("section4").child("publicFacilitiesExpected").getValue(Float.class);
-                    publicEntertainmentUtilitiesAvailability = snapshot.child(id).child("section4").child("publicEntertainmentUtilitiesAvailability").getValue(Float.class);
-                    publicEntertaimnentUtilitiesExpected = snapshot.child(id).child("section4").child("publicEntertaimnentUtilitiesExpected").getValue(Float.class);
-                    networkSpeedAvailable = snapshot.child(id).child("section4").child("networkSpeedAvailable").getValue(Float.class);
-                    networkSpeedExpected = snapshot.child(id).child("section4").child("networkSpeedExpected").getValue(Float.class);
+                    publicFacilitiesAvailability = snapshot.child(userID).child("section4").child("publicFacilitiesAvailability").getValue(Float.class);
+                    publicFacilitiesExpected = snapshot.child(userID).child("section4").child("publicFacilitiesExpected").getValue(Float.class);
+                    publicEntertainmentUtilitiesAvailability = snapshot.child(userID).child("section4").child("publicEntertainmentUtilitiesAvailability").getValue(Float.class);
+                    publicEntertaimnentUtilitiesExpected = snapshot.child(userID).child("section4").child("publicEntertaimnentUtilitiesExpected").getValue(Float.class);
+                    networkSpeedAvailable = snapshot.child(userID).child("section4").child("networkSpeedAvailable").getValue(Float.class);
+                    networkSpeedExpected = snapshot.child(userID).child("section4").child("networkSpeedExpected").getValue(Float.class);
                     leisure_recreation =( publicFacilitiesAvailability-publicFacilitiesExpected)/100;
                     entertainment=(publicEntertainmentUtilitiesAvailability-publicEntertaimnentUtilitiesExpected)/100;
                     network_connectivity=(networkSpeedAvailable-networkSpeedExpected)/100;
 
-                    exiGovtRespTimeVar = snapshot.child(id).child("section5").child("exiGovtRespTimeVar").getValue(Float.class);
-                    expGovtRespTimeVar = snapshot.child(id).child("section5").child("expGovtRespTimeVar").getValue(Float.class);
-                    availNatEnvVar = snapshot.child(id).child("section5").child("availNatEnvVar").getValue(Float.class);
-                    expNatEnvVar = snapshot.child(id).child("section5").child("expNatEnvVar").getValue(Float.class);
-                    exiQualityVar = snapshot.child(id).child("section5").child("exiQualityVar").getValue(Float.class);
-                    expQualityVar = snapshot.child(id).child("section5").child("expQualityVar").getValue(Float.class);
+                    exiGovtRespTimeVar = snapshot.child(userID).child("section5").child("exiGovtRespTimeVar").getValue(Float.class);
+                    expGovtRespTimeVar = snapshot.child(userID).child("section5").child("expGovtRespTimeVar").getValue(Float.class);
+                    availNatEnvVar = snapshot.child(userID).child("section5").child("availNatEnvVar").getValue(Float.class);
+                    expNatEnvVar = snapshot.child(userID).child("section5").child("expNatEnvVar").getValue(Float.class);
+                    exiQualityVar = snapshot.child(userID).child("section5").child("exiQualityVar").getValue(Float.class);
+                    expQualityVar = snapshot.child(userID).child("section5").child("expQualityVar").getValue(Float.class);
                     governance = (expGovtRespTimeVar-exiGovtRespTimeVar)/100;
                     natural_env =(availNatEnvVar-expNatEnvVar)/100;
                     quality_of_life = (exiQualityVar-expQualityVar)/100;

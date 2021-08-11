@@ -193,12 +193,13 @@ public class FormSectionTwo extends AppCompatActivity {
                     rankSal=(exiSalVar-expSalVar)/100;
 
                     //get data from shared preference
-                    SharedPreferences sh = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
+                    SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+                    String userID = preferences.getString("userID", "");
 
 // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
 //                    String s1 = sh.getString("fname", "");
-                    String id = sh.getString("Id", "");
+
 
 
                     RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
@@ -206,7 +207,7 @@ public class FormSectionTwo extends AppCompatActivity {
 
                     SectionTwoHelper sectionTwoHelper = new SectionTwoHelper( exiEduFacPubVar,  expEduFacPubVar,  exiEduFacPriVar,  expEduFacPriVar,  availPubTransVar,  expPubTransVar,  availPriTransVar,  expPriTransVar,  availPolStationVar,  expPolStationVar,  exiSalVar,  expSalVar);
 
-                    reference.child(id).child("section2").setValue(sectionTwoHelper);
+                    reference.child(userID).child("section2").setValue(sectionTwoHelper);
 
                     // to append data
 //                HashMap<String,Object> values = new HashMap<>();

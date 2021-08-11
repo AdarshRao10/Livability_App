@@ -147,12 +147,13 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
                     rankNatEnv=(availNatEnvVar-expNatEnvVar)/100;
 
                     //get data from shared preference
-                    SharedPreferences sh = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
+                    SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+                    String userID = preferences.getString("userID", "");
 
 // The value will be default as empty string because for
 // the very first time when the app is opened, there is nothing to show
 
-                    String id = sh.getString("Id", "");
+
 
 
 
@@ -161,7 +162,7 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
                     SectionFiveSixSevenHelper sectionFiveSixSevenHelper = new SectionFiveSixSevenHelper(exiQualityVar,expQualityVar,exiGovtRespTimeVar,expGovtRespTimeVar,availNatEnvVar,expNatEnvVar);
 
-                    reference.child(id).child("section5").setValue(sectionFiveSixSevenHelper);
+                    reference.child(userID).child("section5").setValue(sectionFiveSixSevenHelper);
                     Toast.makeText(getApplicationContext(), "Section 5 complete", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(getApplicationContext(),CalculationActivity.class);
@@ -283,14 +284,14 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
                             //Toast.makeText(getApplicationContext()," "+lat+" "+longitude1, Toast.LENGTH_SHORT).show();
 
-                            SharedPreferences sh = getSharedPreferences("MySharedPref2",MODE_PRIVATE);
-                            String id = sh.getString("Id", "");
+                            SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+                            String userID = preferences.getString("userID", "");
                             RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
                             reference = RootNode.getReference("users");
 //                            reference.child(id).child("latitude").setValue(lat);
 //                            reference.child(id).child("longitude").setValue(longitude1);
-                            reference.child(id).child("latitude").setValue(17.325566899962084);  //17.325566899962084, 78.39983258938912
-                           reference.child(id).child("longitude").setValue(78.39983258938912);
+                            reference.child(userID).child("latitude").setValue(17.325566899962084);  //17.325566899962084, 78.39983258938912
+                           reference.child(userID).child("longitude").setValue(78.39983258938912);
 
                             Toast.makeText(getApplicationContext(),"Done", Toast.LENGTH_SHORT).show();
 

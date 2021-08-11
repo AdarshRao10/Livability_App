@@ -126,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
                         // reference.child(fname).setValue(helperClass);
                         // reference.push().setValue(helperClass);
 
+
+
                         Toast.makeText(getApplicationContext(),"Registration successfull!!",Toast.LENGTH_SHORT).show();
 
                     }
