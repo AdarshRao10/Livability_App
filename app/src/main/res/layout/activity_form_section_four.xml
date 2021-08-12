@@ -14,7 +14,7 @@
         android:padding="5dp"
         android:gravity="center"
         android:layout_margin="10dp"
-        android:text="Section4" />
+        android:text="Network, Entertainment, Leisure and Recreation" />
 
     <ScrollView
         android:id="@+id/sV_section4"
