@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="The application will help you in understanding your status of liveability in your area. The Application is developed under the ICSSR IMPRESS Project titled as “Transformative Urban Regions: Governing Accessibility, Liveability and Sustainability in the Megacity Regions"
+        android:text="&quot; The application will help you in understanding your status of liveability in your area&quot;. The Application is developed under the ICSSR IMPRESS Project titled as &quot;Transformative Urban Regions: Governing Accessibility, Liveability and Sustainability in the Megacity Regions&quot;"
         android:layout_marginTop="5dp"
         android:textSize="17dp"
         android:textColor="@color/black"/>
@@ -32,9 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="The result displayed as an output totally depend on Users inputs,
-The visualisation is for the better understanding of spatial distribution of various services,
-The downloadable data can only be used for research and / or awareness and not for any legal claims"
+        android:text="The result displayed as an output totally depend on Users inputs*
+The visualisation is for the better understanding of spatial distribution of various services*
+The downloadable data can only be used for research and / or awareness and not for any legal claims*"
         android:layout_marginTop="5dp"
         android:textSize="17dp"
         android:textColor="@color/black"/>

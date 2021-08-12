@@ -2,9 +2,19 @@ package com.example.loginactivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -25,19 +35,21 @@ import com.google.firebase.database.ValueEventListener;
 import java.lang.ref.Reference;
 import java.security.PrivateKey;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    EditText txtfname,txtlname,txtEmail,txtAge,txtGender,txtQualify,txtprof,txtPurpose,et_day,et_month,et_year,txtUserId;
+    EditText txtfname, txtlname, txtEmail, txtAge, txtGender, txtQualify, txtprof, txtPurpose, et_day, et_month, et_year, txtUserId;
     TextInputLayout txtPwd;
-    Button btnReg ,btnLogin;
+    Button btnReg, btnLogin;
     String[] GenderType;
     Spinner spinner;
 
     FirebaseDatabase RootNode;
     DatabaseReference reference;
 
-    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 
     @Override
@@ -45,32 +57,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-
         setContentView(R.layout.activity_main);
         txtfname = findViewById(R.id.txtfname);
-        txtlname=findViewById(R.id.txtlname);
-        txtEmail=findViewById(R.id.txtEmail);
-        txtAge=findViewById(R.id.txtAge);
-       // txtGender=findViewById(R.id.txtGender);
-        txtQualify=findViewById(R.id.txtQualify);
-        txtprof=findViewById(R.id.txtprof);
-        txtPurpose=findViewById(R.id.txtPurpose);
-        txtPwd=findViewById(R.id.txtPwd);
+        txtlname = findViewById(R.id.txtlname);
+        txtEmail = findViewById(R.id.txtEmail);
+        txtAge = findViewById(R.id.txtAge);
+        // txtGender=findViewById(R.id.txtGender);
+        txtQualify = findViewById(R.id.txtQualify);
+        txtprof = findViewById(R.id.txtprof);
+        txtPurpose = findViewById(R.id.txtPurpose);
+        txtPwd = findViewById(R.id.txtPwd);
         btnReg = findViewById(R.id.btnReg);
-        et_day=findViewById(R.id.et_day);
-        et_month=findViewById(R.id.et_month);
-        et_year=findViewById(R.id.et_year);
+        et_day = findViewById(R.id.et_day);
+        et_month = findViewById(R.id.et_month);
+        et_year = findViewById(R.id.et_year);
         btnLogin = findViewById(R.id.btnLogin);
         txtUserId = findViewById(R.id.txtUserId);
 
         // Spinner element
-         spinner =findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner);
 
         //get array list from string.xml
         GenderType = getResources().getStringArray(R.array.gender);
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,R.layout.item_drop_down,GenderType);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, R.layout.item_drop_down, GenderType);
 
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(R.layout.item_drop_down);
@@ -79,71 +90,63 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(dataAdapter);
 
 
-
-
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(validateform())
-                {
+
+                if (validateform()) {
                     String userid = txtUserId.getText().toString();
 
                     RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
                     reference = RootNode.getReference("users");
 
 
-            Query checkuser = reference.orderByChild("userid").equalTo(userid);
-            checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.exists()) {
-                        txtUserId.setError("choose unique userid");
-                    }
-                    else {
+                    Query checkuser = reference.orderByChild("userid").equalTo(userid);
+                    checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                txtUserId.setError("choose unique userid");
+                            } else {
 
-                        //get all values from edit Text
-                        String fname = txtfname.getText().toString() ;
-                        String lname = txtlname.getText().toString() ;
-                        String email = txtEmail.getText().toString() ;
-                        String age = txtAge.getText().toString() ;
-                        String gender = spinner.getSelectedItem().toString();
-                        String qualification = txtQualify.getText().toString() ;
-                        String profession = txtprof.getText().toString() ;
-                        String purpose = txtPurpose.getText().toString() ;
-                        String day= et_day.getText().toString();
-                        String month=et_month.getText().toString();
-                        String year = et_year.getText().toString();
-                        String password =year+month+day;
+                                //get all values from edit Text
+                                String fname = txtfname.getText().toString();
+                                String lname = txtlname.getText().toString();
+                                String email = txtEmail.getText().toString();
+                                String age = txtAge.getText().toString();
+                                String gender = spinner.getSelectedItem().toString();
+                                String qualification = txtQualify.getText().toString();
+                                String profession = txtprof.getText().toString();
+                                String purpose = txtPurpose.getText().toString();
+                                String day = et_day.getText().toString();
+                                String month = et_month.getText().toString();
+                                String year = et_year.getText().toString();
+                                String password = year + month + day;
 //                    String userid = txtUserId.getText().toString();
-                        //String password = txtPwd.getEditText().getText().toString() ;
+                                //String password = txtPwd.getEditText().getText().toString() ;
 
 
+                                UserHelperClass helperClass = new UserHelperClass(userid, fname, lname, email, age, gender, qualification, profession, purpose, password);
 
-                        UserHelperClass helperClass = new UserHelperClass(userid ,fname, lname, email, age, gender,  qualification, profession,  purpose, password);
+                                reference.child(userid).setValue(helperClass);
+                                // reference.child(fname).setValue(helperClass);
+                                // reference.push().setValue(helperClass);
 
-                        reference.child(userid).setValue(helperClass);
-                        // reference.child(fname).setValue(helperClass);
-                        // reference.push().setValue(helperClass);
-
-
-
-                        Toast.makeText(getApplicationContext(),"Registration successfull!!",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(),Terms.class));
-
-                    }
+                                Toast.makeText(getApplicationContext(),"Login successfull!!",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(),Terms.class));
 
 
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            } );
+                            }
 
 
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
 
 
                 }
@@ -154,12 +157,16 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Login = new Intent(getApplicationContext(),LoginActivity.class);
+                Intent Login = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(Login);
             }
         });
 
     }
+
+    @SuppressLint("MissingPermission")
+
+
     private boolean validateform() {
         String fname = txtfname.getText().toString();
         String lname = txtlname.getText().toString();
@@ -241,63 +248,16 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
 
-        if(userid.isEmpty()) {
+        if (userid.isEmpty()) {
             txtUserId.setError("User id field empty!");
             return false;
         }
-//        else
-//        {
-//            RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
-//            reference = RootNode.getReference("users");
-//            Query checkuser = reference.orderByChild("userid").equalTo(userid);
-//            checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                    if (snapshot.exists()) {
-//                        txtUserId.setError("choose unique userid");
-//                    }
-//
-//
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                }
-//            } );
-//            return false;
 
-
-//            if (checkuser == null) {
-//                Toast.makeText(getApplicationContext(), "No data exist", Toast.LENGTH_SHORT).show();
-//                return true;
-//            }
-//            else {
-//                checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        if (snapshot.exists()) {
-//                            txtUserId.setError("choose unique userid");
-//                        }
-//
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//                return false;
-//            }
-// after all validation return true.
         return true;
-        }
-
-
-
     }
 
+
+}
 
 
 

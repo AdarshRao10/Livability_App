@@ -146,7 +146,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 {
                     latitude2 = snapshot.child(userid).child("latitude").getValue(Double.class);
                     longitude2 = snapshot.child(userid).child("longitude").getValue(Double.class);
-                    LatLng sydney2 = new LatLng(latitude,longitude);
+                    LatLng sydney2 = new LatLng(latitude2,longitude2);
                     mMap.addMarker(new MarkerOptions().position(sydney2).title("My location."));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney2,17));
 

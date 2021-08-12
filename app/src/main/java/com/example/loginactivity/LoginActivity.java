@@ -2,9 +2,17 @@ package com.example.loginactivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements LocationListener {
 
     EditText txtfname;
     TextInputLayout txtPwd;
@@ -28,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
 
     FirebaseDatabase RootNode;
     DatabaseReference reference;
+
+    LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,10 +111,19 @@ public class LoginActivity extends AppCompatActivity {
                                                 editor.putString("userID",fname);
                                                 editor.commit();
 
-                                                Intent Terms = new Intent(getApplicationContext(),FormSectionOne.class);
-                                                startActivity(Terms);
 
-                                                finish();
+                                                if(ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED
+                                                        && ContextCompat.checkSelfPermission(LoginActivity.this,Manifest.permission.ACCESS_COARSE_LOCATION)!=PackageManager.PERMISSION_GRANTED)
+                                                {
+                                                    ActivityCompat.requestPermissions(LoginActivity.this,new String[]{
+                                                            Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION
+                                                    },100);
+                                                }else{
+                                                    getLocation();
+                                                }
+
+
+//                                                finish();
 
                                             }
                                             else{
@@ -137,6 +156,18 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("MissingPermission")
+    private void getLocation() {
+
+        try {
+            locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5000,LoginActivity.this);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     private boolean validateform(){
         String fname = txtfname.getText().toString() ;
         String password = txtPwd.getEditText().getText().toString() ;
@@ -159,4 +190,32 @@ public class LoginActivity extends AppCompatActivity {
         return true;
 
     }
+
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        Toast.makeText(this, ""+location.getLatitude()+","+location.getLongitude(), Toast.LENGTH_SHORT).show();
+
+        double lat = location.getLatitude();
+        double lng= location.getLongitude();
+//                            latitude.setText(String.format("%s", lat));
+//                            longitude.setText(String.format("%s",longitude1));
+
+        //Toast.makeText(getApplicationContext()," "+lat+" "+longitude1, Toast.LENGTH_SHORT).show();
+
+        SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+        String userID = preferences.getString("userID", "");
+        RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
+        reference = RootNode.getReference("users");
+
+        reference.child(userID).child("latitude").setValue(lat);  //17.319401181464258, 78.40302230454013
+        reference.child(userID).child("longitude").setValue(lng);
+
+        Toast.makeText(getApplicationContext(),"Login successfull!!",Toast.LENGTH_SHORT).show();
+        Intent Terms = new Intent(getApplicationContext(),FormSectionOne.class);
+        startActivity(Terms);
+
+
+    }
 }
+

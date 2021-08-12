@@ -30,7 +30,7 @@ public class BarChartNoLogin extends AppCompatActivity {
     // array list for storing entries.
     ArrayList barEntriesArrayList;
 
-    float arr[];
+    double arr[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +39,12 @@ public class BarChartNoLogin extends AppCompatActivity {
 
 
         Bundle extras = getIntent().getExtras();
-        arr = extras.getFloatArray("array");
+        arr = extras.getDoubleArray("array");
 
         Toast.makeText(getApplicationContext(), "arrayB"+arr, Toast.LENGTH_SHORT).show();
 
 
-        final ArrayList<String> xAxisLabel = new ArrayList<>();
-        xAxisLabel.add("Sun");
-        xAxisLabel.add("Mon");
-        xAxisLabel.add("Tue");
-        xAxisLabel.add("Wed");
-        xAxisLabel.add("Thu");
-        xAxisLabel.add("Fri");
-        xAxisLabel.add("Sat");
+
 
         barChart = findViewById(R.id.bargraphNoLogin);
 
@@ -101,12 +94,12 @@ public class BarChartNoLogin extends AppCompatActivity {
 
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
-        barEntriesArrayList.add(new BarEntry(1f, arr[0]));
-        barEntriesArrayList.add(new BarEntry(2f, arr[1]));
-        barEntriesArrayList.add(new BarEntry(3f, arr[2]));
-        barEntriesArrayList.add(new BarEntry(4f, arr[3]));
-        barEntriesArrayList.add(new BarEntry(5f, arr[4]));
-        barEntriesArrayList.add(new BarEntry(6f, arr[5]));
+        barEntriesArrayList.add(new BarEntry(1f, (float) arr[0]));
+        barEntriesArrayList.add(new BarEntry(2f, (float) arr[1]));
+        barEntriesArrayList.add(new BarEntry(3f, (float) arr[2]));
+        barEntriesArrayList.add(new BarEntry(4f, (float) arr[3]));
+        barEntriesArrayList.add(new BarEntry(5f, (float) arr[4]));
+        barEntriesArrayList.add(new BarEntry(6f, (float) arr[5]));
 
 
     }

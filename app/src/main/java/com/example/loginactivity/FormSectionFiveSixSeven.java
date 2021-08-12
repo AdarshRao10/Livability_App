@@ -48,7 +48,7 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
     Button btn_section567;
 
-    Button logout;
+
 
     int max=10;
 

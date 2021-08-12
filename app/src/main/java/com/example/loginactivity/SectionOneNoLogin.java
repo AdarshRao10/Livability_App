@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,9 +23,11 @@ public class SectionOneNoLogin extends AppCompatActivity {
     TextView sb_sanitationAvailableVar2,sb_sanitationExpectedVar2;
     SeekBar sb_sanitationAvailable2,sb_sanitationExpected2;
     Button btn_section1_next2;
-    float waterAvailability,waterExpected,electricityAvailability,electricityExpected,cost_health_public_existing,cost_health_public_expected,cost_health_private_existing,cost_health_private_expected,cost_renting_existing,cost_renting_expected, sanitationAvailable,sanitationExpected;
+    double waterAvailability,waterExpected,electricityAvailability,electricityExpected,cost_health_public_existing,cost_health_public_expected,cost_health_private_existing,cost_health_private_expected,cost_renting_existing,cost_renting_expected, sanitationAvailable,sanitationExpected;
 
     double rankWater,rankElectricity,rankSanitation,rankPublicHealth,rankPrivateHealth,rankHousing;
+
+    double arr[]=new double[6];
 
 
     @Override
@@ -105,18 +108,18 @@ public class SectionOneNoLogin extends AppCompatActivity {
 
                 if(validateform())
                 {
-                    sanitationAvailable= Float.parseFloat(sb_sanitationAvailableVar2.getText().toString());
-                    sanitationExpected= Float.parseFloat(sb_sanitationExpectedVar2.getText().toString());
-                    waterAvailability = parseFloat(et_waterAvailabity2.getText().toString());
-                    waterExpected = parseFloat(et_waterExpected2.getText().toString());
-                    electricityAvailability= parseFloat(et_electricityExpected2.getText().toString());
-                    electricityExpected= parseFloat(et_electricityExpected2.getText().toString());
-                    cost_health_public_existing= parseFloat(et_cost_health_public_existing2.getText().toString());
-                    cost_health_private_existing= parseFloat(et_cost_health_private_existing2.getText().toString());
-                    cost_health_private_expected= parseFloat(et_cost_health_private_expected2.getText().toString());
-                    cost_health_public_expected= parseFloat(et_cost_health_public_expected2.getText().toString());
-                    cost_renting_existing= parseFloat(et_cost_renting_existing2.getText().toString());
-                    cost_renting_expected= parseFloat(et_cost_renting_expected2.getText().toString());
+                    sanitationAvailable= Double.parseDouble(sb_sanitationAvailableVar2.getText().toString());
+                    sanitationExpected= Double.parseDouble(sb_sanitationExpectedVar2.getText().toString());
+                    waterAvailability = Double.parseDouble(et_waterAvailabity2.getText().toString());
+                    waterExpected = Double.parseDouble(et_waterExpected2.getText().toString());
+                    electricityAvailability= Double.parseDouble(et_electricityAvailablity2.getText().toString());
+                    electricityExpected= Double.parseDouble(et_electricityExpected2.getText().toString());
+                    cost_health_public_existing= Double.parseDouble(et_cost_health_public_existing2.getText().toString());
+                    cost_health_private_existing=Double.parseDouble(et_cost_health_private_existing2.getText().toString());
+                    cost_health_private_expected= Double.parseDouble(et_cost_health_private_expected2.getText().toString());
+                    cost_health_public_expected= Double.parseDouble(et_cost_health_public_expected2.getText().toString());
+                    cost_renting_existing= Double.parseDouble(et_cost_renting_existing2.getText().toString());
+                    cost_renting_expected= Double.parseDouble(et_cost_renting_expected2.getText().toString());
 
 
 
@@ -126,17 +129,23 @@ public class SectionOneNoLogin extends AppCompatActivity {
                     rankHousing =(cost_renting_expected-cost_renting_existing)/100;
                     rankPublicHealth =(cost_health_public_expected-cost_health_public_existing)/100;
                     rankPrivateHealth =(cost_health_private_expected-cost_health_public_expected)/100;
-                    rankSanitation=(float)(sanitationAvailable-sanitationExpected)/100;
+                    rankSanitation=(sanitationAvailable-sanitationExpected)/100;
+
+
+
+                    arr[0] = rankWater;
+                    arr[1]= rankElectricity;
+                    arr[2]= rankHousing;
+                    arr[3]= rankPublicHealth;
+                    arr[4]=rankPrivateHealth;
+                    arr[5]= rankSanitation;
+
+                    Log.e("values"," "+arr[0]+" "+arr[1]+" "+arr[2]+" "+arr[3]+" "+arr[4]+" "+arr[5]);
+
 
                     //get data from shared preference
                     // Retrieving the value using its keys the file name
 // must be same in both saving and retrieving the data
-                    SharedPreferences sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-
-// The value will be default as empty string because for
-// the very first time when the app is opened, there is nothing to show
-                    String s1 = sh.getString("fname", "");
-                    String s2 = sh.getString("id", "");
 
 
 //                    RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
@@ -155,14 +164,15 @@ public class SectionOneNoLogin extends AppCompatActivity {
 
 
 
-//                Toast.makeText(getApplicationContext(), "rankWater "+rankWater, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getApplicationContext(), "rankElectricity "+rankElectricity, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getApplicationContext(), "rankHousing "+rankHousing, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "rankWater "+arr[0], Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "rankElectricity "+arr[1], Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "rankHousing "+arr[2], Toast.LENGTH_SHORT).show();
 //                Toast.makeText(getApplicationContext(), "rankPrivateHealth "+rankPrivateHealth, Toast.LENGTH_SHORT).show();
 //                Toast.makeText(getApplicationContext(), "rankPublicHealth "+rankPublicHealth, Toast.LENGTH_SHORT).show();
 //                Toast.makeText(getApplicationContext(), "rankSanitation "+rankSanitation, Toast.LENGTH_SHORT).show();
 //
                     Intent intent = new Intent(getApplicationContext(),CalculationNoLoginActivity.class);
+                    intent.putExtra("array",arr);
                     startActivity(intent);
 
 
