@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/tv_section3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="Public space, Community life" />
+
 
     <ScrollView
         android:layout_width="match_parent"

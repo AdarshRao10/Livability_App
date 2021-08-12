@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     >
 
+    <TextView
+        android:id="@+id/tv_section2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="Transport, Education, Employment, Safety and Security" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
