@@ -15,7 +15,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginRight="15dp"
         android:gravity="center"
-        android:text="Graph between available and expected values."
+        android:text="Gap between availaility and expectations."
         />
 
     <com.github.mikephil.charting.charts.BarChart
