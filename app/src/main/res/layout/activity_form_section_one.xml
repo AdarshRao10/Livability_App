@@ -134,7 +134,10 @@
             <SeekBar
                 android:id="@+id/sb_sanitationAvailable"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <TextView
                 android:id="@+id/sb_sanitationAvailableVar"
@@ -157,7 +160,10 @@
             <SeekBar
                 android:id="@+id/sb_sanitationExpected"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <TextView
                 android:id="@+id/sb_sanitationExpectedVar"
@@ -320,6 +326,30 @@
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:text="Next"
+                android:gravity="center"
+
+                />
+
+            <Button
+                android:id="@+id/btn_section1_skip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Already Filled? Go to next"
+                android:gravity="center"
+
+                />
+
+            <Button
+                android:id="@+id/finalCalc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Form Filled? Check your stats"
                 android:gravity="center"
 
                 />

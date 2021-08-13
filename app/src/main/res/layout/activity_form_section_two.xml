@@ -29,167 +29,260 @@
                 android:text="Available Frequency of Public Mass Transport (in numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
 
             <EditText
                 android:id="@+id/availPubTrans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Expected Frequency of Public Mass Transport (in numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/expPubTrans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Available Frequency of Private Mass Transport (in numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/availPriTrans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Expected Frequency of Private Mass Transport (in numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/expPriTrans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Existing Cost and Quality for availing Education facility in public sector(Marks from 0 to 10) "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <SeekBar
                 android:id="@+id/exiEduFacPub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <TextView
                 android:id="@+id/exiEduFacPubVal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <TextView
                 android:text="Expected Cost and Quality for availing Education facility in public sector(Marks from 0 to 10) "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <SeekBar
                 android:id="@+id/expEduFacPub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <TextView
                 android:id="@+id/expEduFacPubVal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <TextView
                 android:text="Existing Cost and Quality for availing Education facility in private sector(Marks from 0 to 10) "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <SeekBar
                 android:id="@+id/exiEduFacPri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <TextView
                 android:id="@+id/exiEduFacPriVal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <TextView
                 android:text="Expected Cost and Quality for availing Education facility in private sector(Marks from 0 to 10) "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <SeekBar
                 android:id="@+id/expEduFacPri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <TextView
                 android:id="@+id/expEduFacPriVal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <TextView
                 android:text="Available number of police substations (in numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/availPolStation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="number" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Expected number of police substations (in numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/expPolStation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="number" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Existing Salary from current employment (in Rupees)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/exiSal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="number" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Expected Salary from current employment (in Rupees)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/expSal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="number" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btn_section2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CLICK TO SAVE AND CONTIUE"/>
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Next"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/btn_section2_skip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Already Filled? Go to next"
+                android:gravity="center"/>
 
         </LinearLayout>
 

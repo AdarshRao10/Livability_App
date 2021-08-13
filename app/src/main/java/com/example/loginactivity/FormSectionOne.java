@@ -36,7 +36,7 @@ public class FormSectionOne extends AppCompatActivity {
     EditText et_waterAvailabity,et_waterExpected,et_electricityAvailablity,et_electricityExpected,et_cost_health_public_existing,et_cost_health_public_expected,et_cost_health_private_existing,et_cost_health_private_expected,et_cost_renting_existing,et_cost_renting_expected;
     TextView sb_sanitationAvailableVar,sb_sanitationExpectedVar;
     SeekBar sb_sanitationAvailable,sb_sanitationExpected;
-    Button btn_section1_next;
+    Button btn_section1_next, btn_section1_skip, finalCalc;
     float waterAvailability,waterExpected,electricityAvailability,electricityExpected,cost_health_public_existing,cost_health_public_expected,cost_health_private_existing,cost_health_private_expected,cost_renting_existing,cost_renting_expected, sanitationAvailable,sanitationExpected;
 
     double rankWater,rankElectricity,rankSanitation,rankPublicHealth,rankPrivateHealth,rankHousing;
@@ -64,8 +64,10 @@ public class FormSectionOne extends AppCompatActivity {
         sb_sanitationAvailable=findViewById(R.id.sb_sanitationAvailable);
         sb_sanitationExpected=findViewById(R.id.sb_sanitationExpected);
         btn_section1_next=findViewById(R.id.btn_section1_next);
+        btn_section1_skip=findViewById(R.id.btn_section1_skip);
         sb_sanitationAvailableVar=findViewById(R.id.sb_sanitationAvailableVar);
         sb_sanitationExpectedVar=findViewById(R.id.sb_sanitationExpectedVar);
+        finalCalc=findViewById(R.id.finalCalc);
 
 
         sb_sanitationAvailable.setMax(10);
@@ -202,6 +204,20 @@ public class FormSectionOne extends AppCompatActivity {
 
 
 
+        });
+
+        btn_section1_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),FormSectionTwo.class));
+            }
+        });
+
+        finalCalc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),CalculationActivity.class));
+            }
         });
 
     }

@@ -36,7 +36,7 @@ public class FormSectionTwo extends AppCompatActivity {
 
     int max=10;
 
-    Button btn_section2;
+    Button btn_section2,btn_section2_skip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +73,7 @@ public class FormSectionTwo extends AppCompatActivity {
         expSal=findViewById(R.id.expSal);
 
         btn_section2=findViewById(R.id.btn_section2);
+        btn_section2_skip=findViewById(R.id.btn_section2_skip);
 
 
 
@@ -235,6 +236,13 @@ public class FormSectionTwo extends AppCompatActivity {
 
 
 
+            }
+        });
+
+        btn_section2_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),FormSectionThree.class));
             }
         });
     }

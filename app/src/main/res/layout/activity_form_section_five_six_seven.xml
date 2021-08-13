@@ -29,88 +29,141 @@
                 android:text="Existing Response time taken for any governance activity (in day's numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                />
 
             <EditText
                 android:id="@+id/exiGovtRespTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Expected Response time taken for any governance activity (in day's numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/expGovtRespTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
 
             <TextView
                 android:text="Percentage of Natural Environment available (in numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/availNatEnv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp"  />
             <TextView
                 android:text="Expected Percentage of Natural Environment (in numbers) "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/expNatEnv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp"  />
 
             <TextView
                 android:text="Your Existing marks for quality of life"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <SeekBar
                 android:id="@+id/exiQuality"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <TextView
                 android:id="@+id/exiQualityVal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <TextView
                 android:text="Your Expectation marks for quality of life "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <SeekBar
                 android:id="@+id/expQuality"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
             <TextView
                 android:id="@+id/expQualityVal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <Button
                 android:id="@+id/btn_section567"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CLICK TO SAVE AND CONTIUE"/>
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Next"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/btn_section567_skip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Next"
+                android:gravity="center"/>
 
 
 

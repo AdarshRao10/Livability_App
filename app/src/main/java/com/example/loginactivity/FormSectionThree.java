@@ -25,7 +25,7 @@ public class FormSectionThree extends AppCompatActivity {
     EditText exiNeighVisits,expNeighVisits;
     float exiNeighVisitsVar,expNeighVisitsVar;
 
-    Button btn_section3;
+    Button btn_section3,btn_section3_skip;
 
     float resPubSpaces,resNeighVisits;
 
@@ -46,6 +46,8 @@ public class FormSectionThree extends AppCompatActivity {
         expNeighVisits=findViewById(R.id.expNeighVisits);
 
         btn_section3=findViewById(R.id.btn_section3);
+
+        btn_section3_skip=findViewById(R.id.btn_section3_skip);
 
         btn_section3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +91,13 @@ public class FormSectionThree extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+        btn_section3_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),FormSectionFour.class));
             }
         });
 

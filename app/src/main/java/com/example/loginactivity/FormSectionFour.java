@@ -23,7 +23,7 @@ public class FormSectionFour extends AppCompatActivity {
 
     EditText et_publicFacilitiesAvailable,et_publicFacilitiesExpected,et_publicentertainmentUtilitiesAvailable,et_publicentertainmentUtilitiesExpected;
     SeekBar sb_networkSpeedAvailable,sb_networkSpeedExpected;
-    Button btn_section4_next;
+    Button btn_section4_next, btn_section4_skip;
     float publicFacilitiesAvailability,publicFacilitiesExpected,publicEntertainmentUtilitiesAvailability,publicEntertaimnentUtilitiesExpected;
     float networkSpeedAvailable,networkSpeedExpected;
     TextView sb_networkSpeedAvailableValue,sb_networkSpeedExpectedValue;
@@ -44,6 +44,7 @@ public class FormSectionFour extends AppCompatActivity {
         sb_networkSpeedAvailable=findViewById(R.id.sb_networkSpeedAvailable);
         sb_networkSpeedExpected=findViewById(R.id.sb_networkSpeedExpected);
         btn_section4_next=findViewById(R.id.btn_section4_next);
+        btn_section4_skip=findViewById(R.id.btn_section4_skip);
         sb_networkSpeedAvailableValue=findViewById(R.id.sb_networkSpeedAvailableValue);
         sb_networkSpeedExpectedValue=findViewById(R.id.sb_networkSpeedExpectedValue);
 
@@ -143,6 +144,13 @@ public class FormSectionFour extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+        btn_section4_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),FormSectionFiveSixSeven.class));
             }
         });
 

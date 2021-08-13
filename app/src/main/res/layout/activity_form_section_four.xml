@@ -177,6 +177,18 @@
 
                 />
 
+            <Button
+                android:id="@+id/btn_section4_skip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Already Filled? Go to next"
+                android:gravity="center"
+
+                />
+
 
 
 

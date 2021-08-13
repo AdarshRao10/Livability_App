@@ -49,22 +49,22 @@
         </activity>
         <activity
             android:name=".CalculationNoLoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SectionOneNoLogin"
             android:exported="true" />
         <activity
             android:name=".BarchartActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".CalculationActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".FormSectionFiveSixSeven"
             android:exported="true" />
         <activity
             android:name=".FormSectionFour"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".FormSectionThree"
             android:exported="true" />
@@ -86,7 +86,7 @@
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

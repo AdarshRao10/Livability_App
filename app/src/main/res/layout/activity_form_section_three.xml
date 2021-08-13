@@ -30,56 +30,96 @@
                 android:text="Available number of public spaces (in numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/availPubSpaces"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Expected number of public spaces (in numbers)	"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/expPubSpaces"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Number of existing visits made to neighbours per month (in numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/exiNeighVisits"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
             <TextView
                 android:text="Number of expected visits made to neighbours per month (in numbers)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:padding="5dp"/>
 
             <EditText
                 android:id="@+id/expNeighVisits"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btn_section3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CLICK TO SAVE AND CONTIUE"/>
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Next"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/btn_section3_skip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Already Filled? Go to next"
+                android:gravity="center"/>
 
 
 

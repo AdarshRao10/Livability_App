@@ -46,7 +46,7 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
     FirebaseDatabase RootNode;
     DatabaseReference reference;
 
-    Button btn_section567;
+    Button btn_section567,btn_section567_skip;
 
 
 
@@ -77,6 +77,7 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
         expNatEnv=findViewById(R.id.expNatEnv);
 
         btn_section567=findViewById(R.id.btn_section567);
+        btn_section567_skip=findViewById(R.id.btn_section567_skip);
         //logout=findViewById(R.id.logout);
 
 
@@ -191,6 +192,13 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
 
 
+            }
+        });
+
+        btn_section567_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),CalculationActivity.class));
             }
         });
 
