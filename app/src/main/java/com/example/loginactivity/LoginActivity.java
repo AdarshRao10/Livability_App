@@ -161,7 +161,7 @@ public class LoginActivity extends AppCompatActivity implements LocationListener
 
         try {
             locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5000,LoginActivity.this);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,5000,5000,LoginActivity.this);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -214,6 +214,7 @@ public class LoginActivity extends AppCompatActivity implements LocationListener
         Toast.makeText(getApplicationContext(),"Login successfull!!",Toast.LENGTH_SHORT).show();
         Intent Terms = new Intent(getApplicationContext(),FormSectionOne.class);
         startActivity(Terms);
+        finish();
 
 
     }

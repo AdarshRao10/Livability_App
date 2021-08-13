@@ -118,7 +118,7 @@ public class CalculationNoLoginActivity extends AppCompatActivity implements Loc
 
         try {
             locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5000,CalculationNoLoginActivity.this);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,5000,5000,CalculationNoLoginActivity.this);
 
         }catch (Exception e){
             e.printStackTrace();

@@ -7,6 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+//import com.github.mikephil.charting.charts.BarChart;
+//import com.github.mikephil.charting.components.XAxis;
+//import com.github.mikephil.charting.data.BarData;
+//import com.github.mikephil.charting.data.BarDataSet;
+//import com.github.mikephil.charting.data.BarEntry;
+//import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+//import com.github.mikephil.charting.utils.ColorTemplate;
+
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -42,7 +50,7 @@ public class BarchartActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         arr = extras.getDoubleArray("array");
 
-        Toast.makeText(getApplicationContext(), "arrayB"+arr, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "arrayB"+arr[0], Toast.LENGTH_SHORT).show();
 
 
 
