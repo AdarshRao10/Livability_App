@@ -1,4 +1,4 @@
-package com.example.loginactivity;
+package com.mylivability.loginactivity;
 
 public class SectionTwoHelper {
     float exiEduFacPubVar,expEduFacPubVar,exiEduFacPriVar,expEduFacPriVar;

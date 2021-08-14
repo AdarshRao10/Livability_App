@@ -1,11 +1,8 @@
-package com.example.loginactivity;
-
-import static java.lang.Float.parseFloat;
+package com.mylivability.loginactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,8 +11,6 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.firebase.database.FirebaseDatabase;
 
 public class SectionOneNoLogin extends AppCompatActivity {
 

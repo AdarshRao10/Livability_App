@@ -1,4 +1,4 @@
-package com.example.loginactivity;
+package com.mylivability.loginactivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

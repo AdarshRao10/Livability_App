@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.loginactivity">
+    package="com.mylivability.loginactivity">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -32,14 +32,14 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsNoLoginActivity"
+            android:name="com.mylivability.loginactivity.MapsNoLoginActivity"
             android:exported="true"
             android:label="@string/title_activity_maps_no_login" />
         <activity
-            android:name=".BarChartNoLogin"
+            android:name="com.mylivability.loginactivity.BarChartNoLogin"
             android:exported="true" />
         <activity
-            android:name=".SplashActivity"
+            android:name="com.mylivability.loginactivity.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -49,47 +49,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CalculationNoLoginActivity"
+            android:name="com.mylivability.loginactivity.CalculationNoLoginActivity"
             android:exported="true" />
         <activity
-            android:name=".SectionOneNoLogin"
+            android:name="com.mylivability.loginactivity.SectionOneNoLogin"
             android:exported="true" />
         <activity
-            android:name=".BarchartActivity"
+            android:name="com.mylivability.loginactivity.BarchartActivity"
             android:exported="true" />
         <activity
-            android:name=".CalculationActivity"
+            android:name="com.mylivability.loginactivity.CalculationActivity"
             android:exported="true" />
         <activity
-            android:name=".FormSectionFiveSixSeven"
+            android:name="com.mylivability.loginactivity.FormSectionFiveSixSeven"
             android:exported="true" />
         <activity
-            android:name=".FormSectionFour"
+            android:name="com.mylivability.loginactivity.FormSectionFour"
             android:exported="true" />
         <activity
-            android:name=".FormSectionThree"
+            android:name="com.mylivability.loginactivity.FormSectionThree"
             android:exported="true" />
         <activity
-            android:name=".FormSectionTwo"
+            android:name="com.mylivability.loginactivity.FormSectionTwo"
             android:exported="true" />
         <activity
-            android:name=".FormSectionOne"
+            android:name="com.mylivability.loginactivity.FormSectionOne"
             android:exported="true" />
         <activity
-            android:name=".MapsActivity"
+            android:name="com.mylivability.loginactivity.MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".Home"
+            android:name="com.mylivability.loginactivity.Home"
             android:exported="true" />
         <activity
-            android:name=".Terms"
+            android:name="com.mylivability.loginactivity.Terms"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name="com.mylivability.loginactivity.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.mylivability.loginactivity.MainActivity"
             android:exported="true">
 
         </activity>

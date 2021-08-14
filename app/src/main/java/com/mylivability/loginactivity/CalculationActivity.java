@@ -1,4 +1,4 @@
-package com.example.loginactivity;
+package com.mylivability.loginactivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class CalculationActivity extends AppCompatActivity {
 //            variables declared as per column 1 of calculation table in same sequence

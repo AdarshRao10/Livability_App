@@ -1,14 +1,8 @@
-package com.example.loginactivity;
+package com.mylivability.loginactivity;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.location.LocationManager;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -18,7 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.loginactivity.databinding.ActivityMapsNoLoginBinding;
+import com.mylivability.loginactivity.databinding.ActivityMapsNoLoginBinding;
 
 public class MapsNoLoginActivity extends FragmentActivity implements OnMapReadyCallback {
 

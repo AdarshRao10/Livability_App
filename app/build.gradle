@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.loginactivity"
+        applicationId "com.mylivability.loginactivity"
         minSdk 21
         targetSdk 31
         versionCode 1
