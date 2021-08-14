@@ -66,7 +66,7 @@ The downloadable data can only be used for research and / or awareness and not f
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="Proceed for calculation"
+        android:text="Proceed for login"
         android:textAllCaps="true"
         android:layout_marginTop="20dp"/>
 
