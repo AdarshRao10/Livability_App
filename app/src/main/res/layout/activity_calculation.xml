@@ -12,24 +12,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:height="30dp"
-        android:text="Your details are saved. Thank you for your survey. What else would you like to do?"/>
+        android:text="Your details are saved. Thank you for your survey. What else would you like to do?"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        />
 
     <Button
         android:id="@+id/goToMaps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show your details in Map"/>
+        android:text="Show your details in Map"
+        android:layout_marginBottom="15dp"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"/>
 
     <Button
         android:id="@+id/goToGraphs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show your details in Graph"/>
+        android:text="Show your details in Graph"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"/>
 
     <Button
         android:id="@+id/logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LOGOUT"/>
+        android:text="LOGOUT"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"/>
 
 </LinearLayout>

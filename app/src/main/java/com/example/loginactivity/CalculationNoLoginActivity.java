@@ -21,7 +21,7 @@ public class CalculationNoLoginActivity extends AppCompatActivity implements Loc
 
 
 
-    Button goToMaps,goToGraphs;
+    Button goToMaps,goToGraphs,backToLogin;
     int countGreen=0,countBlue=0,countRed=0;
 
     String res;
@@ -39,6 +39,7 @@ public class CalculationNoLoginActivity extends AppCompatActivity implements Loc
 
         goToMaps=findViewById(R.id.goToMaps);
         goToGraphs=findViewById(R.id.goToGraphs);
+        backToLogin=findViewById(R.id.backToLogin);
 
 
 
@@ -107,6 +108,14 @@ public class CalculationNoLoginActivity extends AppCompatActivity implements Loc
                 Intent intent=new Intent(getApplicationContext(),BarChartNoLogin.class);
                 intent.putExtra("array",arr);
                 startActivity(intent);
+            }
+        });
+
+        backToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                finish();
             }
         });
 
