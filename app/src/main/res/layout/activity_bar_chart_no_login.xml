@@ -33,7 +33,7 @@
         android:padding="5dp"
         android:layout_marginRight="15dp"
         android:gravity="center"
-        android:text="Livability PieChart"
+        android:text="Livability BarChart"
         />
 
 
