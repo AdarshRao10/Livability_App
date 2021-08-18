@@ -1,4 +1,4 @@
-package com.mylivability.loginactivity;
+package com.myliveability.loginactivity;
 
 import org.junit.Test;
 

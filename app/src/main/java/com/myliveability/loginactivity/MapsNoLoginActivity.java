@@ -1,4 +1,4 @@
-package com.mylivability.loginactivity;
+package com.myliveability.loginactivity;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -12,7 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.mylivability.loginactivity.databinding.ActivityMapsNoLoginBinding;
+import com.myliveability.loginactivity.databinding.ActivityMapsNoLoginBinding;
 
 public class MapsNoLoginActivity extends FragmentActivity implements OnMapReadyCallback {
 

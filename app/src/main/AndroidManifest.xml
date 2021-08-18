@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mylivability.loginactivity">
+    package="com.myliveability.loginactivity">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -32,14 +32,14 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.mylivability.loginactivity.MapsNoLoginActivity"
+            android:name="com.myliveability.loginactivity.MapsNoLoginActivity"
             android:exported="true"
             android:label="@string/title_activity_maps_no_login" />
         <activity
-            android:name="com.mylivability.loginactivity.BarChartNoLogin"
+            android:name="com.myliveability.loginactivity.BarChartNoLogin"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.SplashActivity"
+            android:name="com.myliveability.loginactivity.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -49,47 +49,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mylivability.loginactivity.CalculationNoLoginActivity"
+            android:name="com.myliveability.loginactivity.CalculationNoLoginActivity"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.SectionOneNoLogin"
+            android:name="com.myliveability.loginactivity.SectionOneNoLogin"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.BarchartActivity"
+            android:name="com.myliveability.loginactivity.BarchartActivity"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.CalculationActivity"
+            android:name="com.myliveability.loginactivity.CalculationActivity"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.FormSectionFiveSixSeven"
+            android:name="com.myliveability.loginactivity.FormSectionFiveSixSeven"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.FormSectionFour"
+            android:name="com.myliveability.loginactivity.FormSectionFour"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.FormSectionThree"
+            android:name="com.myliveability.loginactivity.FormSectionThree"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.FormSectionTwo"
+            android:name="com.myliveability.loginactivity.FormSectionTwo"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.FormSectionOne"
+            android:name="com.myliveability.loginactivity.FormSectionOne"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.MapsActivity"
+            android:name="com.myliveability.loginactivity.MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name="com.mylivability.loginactivity.Home"
+            android:name="com.myliveability.loginactivity.Home"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.Terms"
+            android:name="com.myliveability.loginactivity.Terms"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.LoginActivity"
+            android:name="com.myliveability.loginactivity.LoginActivity"
             android:exported="true" />
         <activity
-            android:name="com.mylivability.loginactivity.MainActivity"
+            android:name="com.myliveability.loginactivity.MainActivity"
             android:exported="true">
 
         </activity>

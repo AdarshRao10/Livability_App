@@ -4,10 +4,18 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\bundle\\my_livibality.jks')
+            storePassword 'rootabc'
+            keyAlias 'key0'
+            keyPassword 'rootabc'
+        }
+    }
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.mylivability.loginactivity"
+        applicationId "com.myliveability.loginactivity"
         minSdk 21
         targetSdk 31
         versionCode 1
@@ -20,6 +28,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {

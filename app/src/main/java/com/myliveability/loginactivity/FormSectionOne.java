@@ -1,4 +1,4 @@
-package com.mylivability.loginactivity;
+package com.myliveability.loginactivity;
 import static java.lang.Float.parseFloat;
 
 import androidx.appcompat.app.AppCompatActivity;
