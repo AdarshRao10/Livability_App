@@ -132,9 +132,7 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
                     availNatEnvVar=Float.parseFloat(availNatEnv.getText().toString());
                     expNatEnvVar=Float.parseFloat(expNatEnv.getText().toString());
 
-                    rankQuality=(exiQualityVar-expQualityVar)/100;
-                    rankGovt=(exiGovtRespTimeVar-expGovtRespTimeVar)/100;
-                    rankNatEnv=(availNatEnvVar-expNatEnvVar)/100;
+
 
                     //get data from shared preference
                     SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
