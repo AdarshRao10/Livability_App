@@ -123,17 +123,20 @@ public class SectionOneNoLogin extends AppCompatActivity {
                     rankElectricity = (electricityAvailability-electricityExpected)/100;
                     rankHousing =(cost_renting_expected-cost_renting_existing)/100;
                     rankPublicHealth =(cost_health_public_expected-cost_health_public_existing)/100;
-                    rankPrivateHealth =(cost_health_private_expected-cost_health_public_expected)/100;
+                    rankPrivateHealth =(cost_health_private_expected-cost_health_private_existing)/100;
                     rankSanitation=(sanitationAvailable-sanitationExpected)/100;
+
+
+
 
 
 
                     arr[0] = rankWater;
                     arr[1]= rankElectricity;
-                    arr[2]= rankHousing;
+                    arr[2]= rankSanitation;
                     arr[3]= rankPublicHealth;
                     arr[4]=rankPrivateHealth;
-                    arr[5]= rankSanitation;
+                    arr[5]= rankHousing;
 
                     Log.e("values"," "+arr[0]+" "+arr[1]+" "+arr[2]+" "+arr[3]+" "+arr[4]+" "+arr[5]);
 

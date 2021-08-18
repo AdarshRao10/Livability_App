@@ -130,7 +130,7 @@ public class CalculationActivity extends AppCompatActivity {
                      sanitation = (sanitationAvailable-sanitationExpected)/100;
                      public_health_sys = (cost_health_public_expected-cost_health_public_existing)/100;
                      private_health_sys = (cost_health_private_expected-cost_health_private_existing)/100;
-                     housing = (cost_renting_expected-cost_health_private_existing)/100;
+                     housing = (cost_renting_expected-cost_renting_existing)/100;
 
                     availPubTransVar = snapshot.child(userID).child("section2").child("availPubTransVar").getValue(Float.class);
                     expPubTransVar = snapshot.child(userID).child("section2").child("expPubTransVar").getValue(Float.class);
@@ -146,8 +146,8 @@ public class CalculationActivity extends AppCompatActivity {
                     expSalVar = snapshot.child(userID).child("section2").child("expSalVar").getValue(Float.class);
                     public_mass_transport=(availPubTransVar-expPubTransVar)/100;
                     private_mass_transport=(availPriTransVar-expPriTransVar)/100;
-                    public_edu_sys=(exiEduFacPriVar-expEduFacPriVar)/100;
-                    private_edu_sys=(exiEduFacPriVar-exiEduFacPubVar)/100;
+                    public_edu_sys=(exiEduFacPubVar-expEduFacPubVar)/100;
+                    private_edu_sys=(exiEduFacPriVar-expEduFacPriVar)/100;
                     safety_security=(availPolStationVar-expPolStationVar)/100;
                     emp_opportunity=(exiSalVar-expSalVar)/100;
 

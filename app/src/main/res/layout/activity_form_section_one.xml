@@ -201,7 +201,7 @@
                 android:id="@+id/tv_cost_health_public_expected"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Expected Cost for availing health facility in public sector (in Rupees)"
+                android:text="Expected Cost for availi health facility in public sector (in Rupees)"
                 android:textSize="16sp"
                 android:layout_margin="10dp"
                 android:padding="5dp"

@@ -14,7 +14,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/my_liability_logo"
-        android:label="My Liveablity"
+        android:label="My Liveability"
         android:roundIcon="@mipmap/my_liability_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginActivity">
