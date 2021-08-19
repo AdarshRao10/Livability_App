@@ -59,7 +59,7 @@ public class CalculationNoLoginActivity extends AppCompatActivity implements Loc
         }
 
 
-        if(countGreen==6)
+        if((countGreen +countBlue)==6)
         {
             Toast.makeText(getApplicationContext(), "Dark Green", Toast.LENGTH_SHORT).show();
             res="dark";

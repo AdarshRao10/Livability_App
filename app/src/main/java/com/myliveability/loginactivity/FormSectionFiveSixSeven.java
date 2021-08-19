@@ -39,7 +39,7 @@ public class FormSectionFiveSixSeven extends AppCompatActivity {
 
 
 
-    int max=10;
+    int max=100;
 
 //    private static final int loc_permission = 1;
 //    double lat,longitude1;

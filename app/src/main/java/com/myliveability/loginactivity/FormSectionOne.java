@@ -55,8 +55,8 @@ public class FormSectionOne extends AppCompatActivity {
         finalCalc=findViewById(R.id.finalCalc);
 
 
-        sb_sanitationAvailable.setMax(10);
-        sb_sanitationExpected.setMax(10);
+        sb_sanitationAvailable.setMax(100);
+        sb_sanitationExpected.setMax(100);
 
 
         sb_sanitationAvailable.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

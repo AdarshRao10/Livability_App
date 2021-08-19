@@ -34,7 +34,7 @@ public class FormSectionTwo extends AppCompatActivity {
     FirebaseDatabase RootNode;
     DatabaseReference reference;
 
-    int max=10;
+    int max=100;
 
     Button btn_section2,btn_section2_skip;
 

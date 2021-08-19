@@ -99,9 +99,65 @@ public class CalculationActivity extends AppCompatActivity {
         logout=findViewById(R.id.logout);
 
          //1st get values from all section
+
+
+
+
+
+
+
+        goToMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intent=new Intent(getApplicationContext(),MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        goToGraphs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),BarchartActivity.class);
+                intent.putExtra("array",arr);
+                startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+
+                editor.remove("userID");
+                editor.clear();
+                editor.commit();
+
+                Toast.makeText(CalculationActivity.this, "Cleared", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                finish();
+
+            }
+        });
+
+
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        calculate();
+    }
+
+    public void calculate(){
+
         RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
         reference = RootNode.getReference("users");
-
 
         SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
         String userID = preferences.getString("userID", "");
@@ -111,26 +167,26 @@ public class CalculationActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                     waterAvailability = snapshot.child(userID).child("section1").child("waterAvailability").getValue(Float.class);
+                    waterAvailability = snapshot.child(userID).child("section1").child("waterAvailability").getValue(Float.class);
 //                    waterAvailability=50;
-                     waterExpected = snapshot.child(userID).child("section1").child("waterExpected").getValue(Float.class);
+                    waterExpected = snapshot.child(userID).child("section1").child("waterExpected").getValue(Float.class);
 //                    waterExpected=60;
                     electricityAvailability = snapshot.child(userID).child("section1").child("electricityAvailability").getValue(Float.class);
-                     electricityExpected = snapshot.child(userID).child("section1").child("electricityExpected").getValue(Float.class);
-                     sanitationAvailable = snapshot.child(userID).child("section1").child("sanitationAvailable").getValue(Float.class);
-                     sanitationExpected = snapshot.child(userID).child("section1").child("sanitationExpected").getValue(Float.class);
-                     cost_health_public_existing = snapshot.child(userID).child("section1").child("cost_health_public_existing").getValue(Float.class);
-                     cost_health_public_expected = snapshot.child(userID).child("section1").child("cost_health_public_expected").getValue(Float.class);
-                     cost_health_private_existing = snapshot.child(userID).child("section1").child("cost_health_private_existing").getValue(Float.class);
-                     cost_health_private_expected = snapshot.child(userID).child("section1").child("cost_health_private_expected").getValue(Float.class);
-                     cost_renting_existing = snapshot.child(userID).child("section1").child("cost_renting_existing").getValue(Float.class);
-                     cost_renting_expected = snapshot.child(userID).child("section1").child("cost_renting_expected").getValue(Float.class);
-                     water = (waterAvailability - waterExpected)/100;
-                     electricity= (electricityAvailability-electricityExpected)/100;
-                     sanitation = (sanitationAvailable-sanitationExpected)/100;
-                     public_health_sys = (cost_health_public_expected-cost_health_public_existing)/100;
-                     private_health_sys = (cost_health_private_expected-cost_health_private_existing)/100;
-                     housing = (cost_renting_expected-cost_renting_existing)/100;
+                    electricityExpected = snapshot.child(userID).child("section1").child("electricityExpected").getValue(Float.class);
+                    sanitationAvailable = snapshot.child(userID).child("section1").child("sanitationAvailable").getValue(Float.class);
+                    sanitationExpected = snapshot.child(userID).child("section1").child("sanitationExpected").getValue(Float.class);
+                    cost_health_public_existing = snapshot.child(userID).child("section1").child("cost_health_public_existing").getValue(Float.class);
+                    cost_health_public_expected = snapshot.child(userID).child("section1").child("cost_health_public_expected").getValue(Float.class);
+                    cost_health_private_existing = snapshot.child(userID).child("section1").child("cost_health_private_existing").getValue(Float.class);
+                    cost_health_private_expected = snapshot.child(userID).child("section1").child("cost_health_private_expected").getValue(Float.class);
+                    cost_renting_existing = snapshot.child(userID).child("section1").child("cost_renting_existing").getValue(Float.class);
+                    cost_renting_expected = snapshot.child(userID).child("section1").child("cost_renting_expected").getValue(Float.class);
+                    water = (waterAvailability - waterExpected)/100;
+                    electricity= (electricityAvailability-electricityExpected)/100;
+                    sanitation = (sanitationAvailable-sanitationExpected)/100;
+                    public_health_sys = (cost_health_public_expected-cost_health_public_existing)/100;
+                    private_health_sys = (cost_health_private_expected-cost_health_private_existing)/100;
+                    housing = (cost_renting_expected-cost_renting_existing)/100;
 
                     availPubTransVar = snapshot.child(userID).child("section2").child("availPubTransVar").getValue(Float.class);
                     expPubTransVar = snapshot.child(userID).child("section2").child("expPubTransVar").getValue(Float.class);
@@ -178,8 +234,8 @@ public class CalculationActivity extends AppCompatActivity {
                     natural_env =(availNatEnvVar-expNatEnvVar)/100;
                     quality_of_life = (exiQualityVar-expQualityVar)/100;
 
-                     arr[0] = water;
-                     arr[1]= electricity;
+                    arr[0] = water;
+                    arr[1]= electricity;
                     arr[2]= sanitation;
                     arr[3]= public_health_sys;
                     arr[4]=private_health_sys;
@@ -226,19 +282,19 @@ public class CalculationActivity extends AppCompatActivity {
 //        Toast.makeText(getApplicationContext(), ""+arr[0], Toast.LENGTH_SHORT).show();
 //        Toast.makeText(getApplicationContext(), list.get(0).toString(), Toast.LENGTH_SHORT).show();
 
-                    if(countGreen>16)
+                    if((countGreen+countBlue)>=17)
                     {
                         Toast.makeText(getApplicationContext(), "Dark Green", Toast.LENGTH_SHORT).show();
                         Result = "dark";
-                    }else if( (countGreen +countBlue)>=13 || (countGreen +countBlue)<=16)
+                    }else if( (countGreen +countBlue)>=13 && (countGreen +countBlue)<=16)
                     {
                         Toast.makeText(getApplicationContext(), "Light Green", Toast.LENGTH_SHORT).show();
                         Result = "green";
-                    }else if(((countGreen +countBlue)>=8) || ((countGreen +countBlue)<=12))
+                    }else if(((countGreen +countBlue)>=8) && ((countGreen +countBlue)<=12))
                     {
                         Toast.makeText(getApplicationContext(), "yellow", Toast.LENGTH_SHORT).show();
                         Result = "yellow";
-                    }else if(((countGreen +countBlue)>=4) || ((countGreen +countBlue)<=7))
+                    }else if(((countGreen +countBlue)>=4) && ((countGreen +countBlue)<=7))
                     {
                         Toast.makeText(getApplicationContext(), "orange", Toast.LENGTH_SHORT).show();
                         Result = "orange";
@@ -247,6 +303,11 @@ public class CalculationActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "red", Toast.LENGTH_SHORT).show();
                         Result = "Red";
                     }
+
+                    RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
+                    reference = RootNode.getReference("users");
+                    reference.child(userID).child("result").setValue(Result);
+                    Toast.makeText(getApplicationContext(), Result, Toast.LENGTH_SHORT).show();
 
 
 
@@ -260,53 +321,10 @@ public class CalculationActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-        goToMaps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
-                String userID = preferences.getString("userID", "");
-                RootNode = FirebaseDatabase.getInstance();//gets all the elements in db from that select 1 element from tree struc
-                reference = RootNode.getReference("users");
-                reference.child(userID).child("result").setValue(Result);
-                Toast.makeText(getApplicationContext(), Result, Toast.LENGTH_SHORT).show();
-
-                Intent intent=new Intent(getApplicationContext(),MapsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        goToGraphs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),BarchartActivity.class);
-                intent.putExtra("array",arr);
-                startActivity(intent);
-            }
-        });
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
-                SharedPreferences.Editor editor=preferences.edit();
-
-                editor.remove("userID");
-                editor.clear();
-                editor.commit();
-
-                Toast.makeText(CalculationActivity.this, "Cleared", Toast.LENGTH_SHORT).show();
-
-                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
-                finish();
-
-            }
-        });
-
-
+//        SharedPreferences preferences=getSharedPreferences("userID", MODE_PRIVATE);
+//        String userID = preferences.getString("userID", "");
 
 
     }
 }
+

@@ -143,6 +143,7 @@
                 android:id="@+id/sb_sanitationAvailableVar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="0"
                 android:textSize="16sp"
                 android:layout_margin="10dp"
                 android:padding="5dp"/>
@@ -169,6 +170,7 @@
                 android:id="@+id/sb_sanitationExpectedVar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="0"
                 android:textSize="16sp"
                 android:layout_margin="10dp"
                 android:padding="5dp"/>

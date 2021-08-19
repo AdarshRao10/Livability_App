@@ -48,8 +48,8 @@ public class FormSectionFour extends AppCompatActivity {
         sb_networkSpeedAvailableValue=findViewById(R.id.sb_networkSpeedAvailableValue);
         sb_networkSpeedExpectedValue=findViewById(R.id.sb_networkSpeedExpectedValue);
 
-        sb_networkSpeedAvailable.setMax(10);
-        sb_networkSpeedExpected.setMax(10);
+        sb_networkSpeedAvailable.setMax(100);
+        sb_networkSpeedExpected.setMax(100);
 
 
         sb_networkSpeedAvailable.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
