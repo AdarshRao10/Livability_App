@@ -105,7 +105,7 @@
                 android:textSize="18sp"  />
 
             <TextView
-                android:text="Your Existing marks for quality of life"
+                android:text="Your Existing marks for quality of life(Marks out of 100)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
@@ -127,7 +127,7 @@
                 android:layout_margin="10dp"
                 android:padding="5dp"/>
             <TextView
-                android:text="Your Expectation marks for quality of life "
+                android:text="Your Expectation marks for quality of life(Marks out of 100)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"

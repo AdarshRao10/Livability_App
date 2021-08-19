@@ -47,8 +47,8 @@ public class SectionOneNoLogin extends AppCompatActivity {
         sb_sanitationExpectedVar2=findViewById(R.id.sb_sanitationExpectedVar2);
 
 
-        sb_sanitationAvailable2.setMax(10);
-        sb_sanitationExpected2.setMax(10);
+        sb_sanitationAvailable2.setMax(100);
+        sb_sanitationExpected2.setMax(100);
 
 
         sb_sanitationAvailable2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
